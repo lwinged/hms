@@ -9,7 +9,6 @@
 #import "HMSAppDelegate.h"
 #import "HMSHotel.h"
 
-
 @implementation HMSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -50,6 +49,7 @@
     //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];
     //    id obj = [NSKeyedUnarchiver unarchiveObjectWithFile:@"favorites"];
     //    NSLog(@"%@", obj);
+    
     
     return YES;
 }

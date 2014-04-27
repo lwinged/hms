@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
 		EE0341EA18DC68E400EA4F4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0341E918DC68E400EA4F4D /* QuartzCore.framework */; };
+		EE2817A3190CCAC7000AA99A /* HMSMathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2817A2190CCAC7000AA99A /* HMSMathHelper.m */; };
 		EE6D4A3B1903AF27005B8EBE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6D4A3A1903AF27005B8EBE /* CoreLocation.framework */; };
 		EE6D4A3D1903AF31005B8EBE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6D4A3C1903AF31005B8EBE /* MapKit.framework */; };
 		EE6D4A481903C770005B8EBE /* JPSThumbnailAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6D4A441903C770005B8EBE /* JPSThumbnailAnnotation.m */; };
@@ -107,6 +108,8 @@
 		EE0341DF18DC595F00EA4F4D /* HMSHelperIndexedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSHelperIndexedList.h; sourceTree = "<group>"; };
 		EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSHelperIndexedList.m; sourceTree = "<group>"; };
 		EE0341E918DC68E400EA4F4D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EE2817A1190CCAC7000AA99A /* HMSMathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSMathHelper.h; sourceTree = "<group>"; };
+		EE2817A2190CCAC7000AA99A /* HMSMathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSMathHelper.m; sourceTree = "<group>"; };
 		EE6D4A3A1903AF27005B8EBE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE6D4A3C1903AF31005B8EBE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EE6D4A421903C770005B8EBE /* JPSThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSThumbnail.h; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 			children = (
 				EE0341DF18DC595F00EA4F4D /* HMSHelperIndexedList.h */,
 				EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */,
+				EE2817A1190CCAC7000AA99A /* HMSMathHelper.h */,
+				EE2817A2190CCAC7000AA99A /* HMSMathHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -728,6 +733,7 @@
 				EEB62F8718F10F9C00FBA33D /* MWCaptionView.m in Sources */,
 				EEB62F8818F10F9C00FBA33D /* MWGridCell.m in Sources */,
 				EEB62FA318F10F9C00FBA33D /* NSData+ImageContentType.m in Sources */,
+				EE2817A3190CCAC7000AA99A /* HMSMathHelper.m in Sources */,
 				EEB62F8C18F10F9C00FBA33D /* MWTapDetectingImageView.m in Sources */,
 				EEB62FA818F10F9C00FBA33D /* SDWebImageDownloaderOperation.m in Sources */,
 				EE6D78C018EFD919006AC569 /* HMSHotel.m in Sources */,

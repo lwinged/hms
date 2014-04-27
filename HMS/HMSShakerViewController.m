@@ -16,6 +16,7 @@
 
 #import "HMSTabBarController.h"
 #import "HMSHotel.h"
+#import "HMSMathHelper.h"
 
 @interface HMSShakerViewController ()
 {
@@ -26,6 +27,8 @@
     
 }
 @end
+
+static double RAYON_KM = 5;
 
 @implementation HMSShakerViewController
 
@@ -176,8 +179,6 @@
     
 //    [self.mapView removeAnnotations:self.mapView.annotations];
     
-    
-    
     for (JPSThumbnailAnnotation *annotation in self.mapView.annotations)
     {
         MKAnnotationView * annotationView = [self mapView:self.mapView viewForAnnotation:annotation];
@@ -189,10 +190,6 @@
                              [self.mapView removeAnnotation:annotation];
                          }];
     }
-    
-    
-    
-    
     
 
 }
@@ -245,7 +242,20 @@
 
 - (NSArray *) locateHotels
 {
-    return appDelegate.sharedHotels;
+    NSMutableArray *locatedHotels = [[NSMutableArray alloc] init];
+    NSArray *hotel_array = appDelegate.sharedHotels;
+    
+//    NSLog(@"user location ----> %@", currentLocation);
+    
+    for (HMSHotel * h in hotel_array)
+    {
+        if ([HMSMathHelper distanceFromAToB:currentLocation.coordinate.latitude :currentLocation.coordinate.longitude :h.latitude :h.longitude] <= RAYON_KM)
+        {
+            [locatedHotels addObject:h];
+        }
+    }
+    
+    return locatedHotels;
 }
 
 - (void) displayHotels

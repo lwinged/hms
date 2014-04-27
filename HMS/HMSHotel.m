@@ -11,7 +11,7 @@
 
 @implementation HMSHotel
 
-- (id)initWithParams:(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(float)latitude :(float)longitude
+- (id)initWithParams:(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(double)latitude :(double)longitude
 {
     
     self = [super init];
