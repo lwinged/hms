@@ -24,11 +24,12 @@
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     HMSAppDelegate *appDelegate;
-    
+    NSArray * _hotelsLocated;
 }
 @end
 
-static double RAYON_KM = 5;
+static double RAYON_KM = 10000;
+static CLLocationDistance DISTANCE_M_UPDATE = 10;
 
 @implementation HMSShakerViewController
 
@@ -59,10 +60,12 @@ static double RAYON_KM = 5;
     
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = DISTANCE_M_UPDATE;
     
     [locationManager startUpdatingLocation];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -81,14 +84,12 @@ static double RAYON_KM = 5;
     [errorAlert show];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    currentLocation = newLocation;
+    currentLocation = [locations lastObject];
     
     if (currentLocation != nil)
         [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
-    [locationManager stopUpdatingLocation];
-
 }
 
 
@@ -98,24 +99,30 @@ static double RAYON_KM = 5;
     if (motion == UIEventSubtypeMotionShake && !self.navigationItem.rightBarButtonItem.isEnabled)
     {
 
+        
         if (radialView.progressCounter + 4 > 15)
         {
             radialView.progressCounter = 15;
-            for (UIView *view in [self.view subviews])
+            if (_hotelsLocated)
             {
-                if (view == radialView)
-                    [UIView animateWithDuration:0.2
-                                     animations:^{view.alpha = 0.0;}
-                                     completion:^(BOOL finished){
-                                         
-                                         [view removeFromSuperview];
-                                           self.navigationItem.rightBarButtonItem.enabled = YES;
-                                         
-                                         [self displayHotels];
-                                         
-                                     }];
-            }
+                for (UIView *view in [self.view subviews])
+                {
+                    if (view == radialView)
+                        [UIView animateWithDuration:0.2
+                                         animations:^{view.alpha = 0.0;}
+                                         completion:^(BOOL finished){
+                                             
+                                             [view removeFromSuperview];
+                                               self.navigationItem.rightBarButtonItem.enabled = YES;
+                                             
+                                             [self displayHotels];
+                                             
+                                         }];
+                }
             
+            }
+            else
+                --radialView.progressCounter;
         }
         else
             radialView.progressCounter += 4;
@@ -154,35 +161,41 @@ static double RAYON_KM = 5;
 
 - (void) enableShaker
 {
-    int x = self.view.center.x - 40;
-	int y = self.view.center.y / 6;
+    _hotelsLocated = nil;
     
-	CGRect frame = CGRectMake(x, y, 80, 80);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _hotelsLocated = [self locateHotels];
+    
+    });
+    
+    
+    int x = self.view.center.x - 40;
+    int y = self.view.center.y / 6;
+    
+    CGRect frame = CGRectMake(x, y, 80, 80);
     
     radialView = [[MDRadialProgressView alloc] initWithFrame:frame];
     
-	radialView.progressTotal = 15;
+    radialView.progressTotal = 15;
     radialView.progressCounter = 0;
-	radialView.clockwise = YES;
-	radialView.theme.completedColor = [UIColor colorWithRed:90/255.0 green:200/255.0 blue:251/255.0 alpha:1.0];
-	radialView.theme.incompletedColor = [UIColor colorWithRed:82/255.0 green:237/255.0 blue:199/255.0 alpha:1.0];
+    radialView.clockwise = YES;
+    radialView.theme.completedColor = [UIColor colorWithRed:90/255.0 green:200/255.0 blue:251/255.0 alpha:1.0];
+    radialView.theme.incompletedColor = [UIColor colorWithRed:82/255.0 green:237/255.0 blue:199/255.0 alpha:1.0];
     radialView.theme.thickness = 30;
     radialView.theme.sliceDividerHidden = NO;
     radialView.theme.sliceDividerColor = [UIColor whiteColor];
     radialView.theme.sliceDividerThickness = 2;
-	radialView.label.hidden = NO;
+    radialView.label.hidden = NO;
     
     
     [self.view addSubview:radialView];
-
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     
-//    [self.mapView removeAnnotations:self.mapView.annotations];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     for (JPSThumbnailAnnotation *annotation in self.mapView.annotations)
     {
         MKAnnotationView * annotationView = [self mapView:self.mapView viewForAnnotation:annotation];
-
+        
         [UIView animateWithDuration:0.2 animations:^(void){
             annotationView.alpha = 0.0;
         }
@@ -190,8 +203,9 @@ static double RAYON_KM = 5;
                              [self.mapView removeAnnotation:annotation];
                          }];
     }
-    
 
+    
+    
 }
 
 
@@ -246,7 +260,7 @@ static double RAYON_KM = 5;
     NSArray *hotel_array = appDelegate.sharedHotels;
     
 //    NSLog(@"user location ----> %@", currentLocation);
-    
+
     for (HMSHotel * h in hotel_array)
     {
         if ([HMSMathHelper distanceFromAToB:currentLocation.coordinate.latitude :currentLocation.coordinate.longitude :h.latitude :h.longitude] <= RAYON_KM)
@@ -261,7 +275,7 @@ static double RAYON_KM = 5;
 - (void) displayHotels
 {
     
-    NSArray * hotelsLocated = [self locateHotels];
+    NSArray * hotelsLocated = _hotelsLocated;
     NSString *path = @"";
     JPSThumbnail *thumbnail;
     
