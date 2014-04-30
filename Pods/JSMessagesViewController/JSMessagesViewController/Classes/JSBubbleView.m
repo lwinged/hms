@@ -225,10 +225,6 @@
         
         stringSize = CGRectIntegral(stringRect).size;
     }
-    else {
-        stringSize = [txt sizeWithFont:[[JSBubbleView appearance] font]
-                     constrainedToSize:CGSizeMake(maxWidth, maxHeight)];
-    }
     
     return CGSizeMake(roundf(stringSize.width), roundf(stringSize.height));
 }
