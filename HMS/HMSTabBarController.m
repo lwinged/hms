@@ -8,6 +8,7 @@
 
 #import "HMSTabBarController.h"
 #import "HMSHotelViewController.h"
+#import "HMSCommentViewController.h"
 #import "HMSAppDelegate.h"
 
 @interface HMSTabBarController ()
@@ -46,6 +47,10 @@
     HMSHotelViewController * hotelViewController = self.viewControllers[0];
     [hotelViewController setDetailItem:self.item];
     
+    HMSHotel *commentView = (HMSHotel *) self.item;
+    HMSCommentViewController * commentViewController = self.viewControllers[1];
+   // [commentViewController setCommentItem:commentView.comments];
+    [commentViewController setCommentItem:commentView.comments];
 }
 
 - (void)didReceiveMemoryWarning
