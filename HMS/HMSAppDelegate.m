@@ -7,7 +7,9 @@
 //
 
 #import "HMSAppDelegate.h"
+#import "HMSModelHelper.h"
 #import "HMSHotel.h"
+
 
 @implementation HMSAppDelegate
 
@@ -17,39 +19,17 @@
     
    // NSLog(@"start");
 
-    HMSHotel *hotel = [[HMSHotel alloc] initWithParams:@"Mon hotel" :@"France" :@"Paris" :@"hotel de Paris" :3 :41.002371 :-102.052066];
-    [hotel.photos addObject:@"hotel1"];
-    [hotel.photos addObject:@"hotel2"];
-    [hotel.photos addObject:@"hotel3"];
+    NSString *master = @"[{\"name\":\"Hotel California\", \"country\":\"USA\", \"city\":\"California\", \"description\":\"Such a lovely place\", \"stars\":\"4\", \"rooms\":[{\"name\":\"King Size\", \"type\":\"deluxe\", \"photos\":[\"hotel4\" ]},{\"name\":\"Queen Size\", \"type\":\"deluxe\", \"photos\":[\"hotel5\"]},{\"name\":\"Prince Size\", \"type\":\"deluxe\", \"photos\":[]}], \"photos\":[\"hotel1\", \"hotel2\", \"hotel3\"],\"comments\":[{\"author\":\"Tevy\", \"comments\":\"Such a lovely face\", \"date\":\"13/04/14\" },{\"author\":\"Timmy\", \"comments\":\"Plenty of room at the hotel California.\", \"date\":\"12/05/14\" },{\"author\":\"Tommy\", \"comments\":\"Any time of year, you can find it here!\", \"date\":\"08/04/15\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Winner\", \"country\":\"France\", \"city\":\"Paris\", \"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[\"hotel5\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Winner2\", \"country\":\"France\", \"city\":\"Paris\",\"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Scheisse\", \"country\":\"Germany\", \"city\":\"Berlin\", \"description\":\"Jawohl!!!\", \"stars\":\"5\", \"rooms\":[{\"name\":\"Banana\", \"type\":\"deluxe\", \"photos\":[\"hotel1\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Lex\", \"comments\":\"Ja, ja! This place is nice and comfy. Could be better without that iron wall isolating this hotel from the city. But Ich bin ein Berliner, huh?\", \"date\":\"11/07/14\" },{\"author\":\"Lux\", \"comments\":\"Ich bin eine schone badekappe!!\", \"date\":\"12/07/14\" }], \"latitude\":5, \"longitude\":4}]";
     
-    HMSRoom * room = [[HMSRoom alloc] initWithParams:@"ma chambre" :@"Deluxe"];
-    [room.photos addObject:@"hotel4"];
-    
-    HMSRoom * room1 = [[HMSRoom alloc] initWithParams:@"ma room" :@"Normal"];
-    [room1.photos addObject:@"hotel5"];
-    
-    [hotel addRoom:room];
-    [hotel addRoom:room1];
-    
-    
-    HMSComment * comment = [[HMSComment alloc] initWithParams:@"moi" :@"l'hotel est tres bien"];
-    HMSComment * comment1 = [[HMSComment alloc] initWithParams:@"pas moi" :@"l'hotel n'est pas tres bien"];
-    
-    [hotel.comments addObject:comment];
-    [hotel.comments addObject:comment1];
-    
-    HMSHotel *hotel1 = [[HMSHotel alloc] initWithParams:@"Mon hotel 2 " :@"France" :@"Pontoise" :@"hotel de Pontoise" :3 :21.002371 :-102.052066];
-    HMSHotel *hotel2 = [[HMSHotel alloc] initWithParams:@"Mon hotel 3 " :@"France" :@"Oaris" :@"hotel de Oaris" :3 :41.002371 :-10.052066];
-    HMSHotel *hotel3 = [[HMSHotel alloc] initWithParams:@"Aon hotel 4 " :@"France" :@"Pontoise" :@"hotel de Oontoise" :3 :4.002371 :-12.052066];
-    
+    NSError *e = nil;
+    NSArray *myTab = [NSJSONSerialization JSONObjectWithData:[master dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&e];
    
-    _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, nil];
+    _sharedHotels = [HMSModelHelper createListOfHotels:myTab];
     _favoritesHotels = [[NSMutableArray alloc] init];
 
     //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];
     //    id obj = [NSKeyedUnarchiver unarchiveObjectWithFile:@"favorites"];
-    //    NSLog(@"%@", obj);
-    
+    //    NSLog(@"%@", obj);    
     
     return YES;
 }

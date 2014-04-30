@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0O7-2Z-cYM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0O7-2Z-cYM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -255,19 +255,10 @@
             </objects>
             <point key="canvasLocation" x="1158" y="827"/>
         </scene>
-        <!--View Controller-->
+        <!--Comment View Controller-->
         <scene sceneID="GLE-Xl-Zvp">
             <objects>
-                <viewController id="h84-dg-bmg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DgG-1R-jET"/>
-                        <viewControllerLayoutGuide type="bottom" id="rLw-ew-A2G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3KF-I0-sIX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                <viewController id="h84-dg-bmg" customClass="HMSCommentViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="k34-rg-BqN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-6g-Zhs" userLabel="First Responder" sceneMemberID="firstResponder"/>

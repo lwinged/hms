@@ -11,7 +11,7 @@
 @implementation HMSComment
 
 
--(id)initWithParams:(NSString *)author :(NSString *)comment
+-(id)initWithParams:(NSString *)author :(NSString *)comment :(NSString *)date
 {
     
     self = [super init];
@@ -20,6 +20,7 @@
     {
         self.author = author;
         self.comment = comment;
+        self.date = date;
     }
     
     return self;
