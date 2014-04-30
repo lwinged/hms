@@ -15,7 +15,7 @@
 {
     // Override point for customization after application launch.
     
-   // NSLog(@"start");
+    //NSLog(@"start");
 
     HMSHotel *hotel = [[HMSHotel alloc] initWithParams:@"Mon hotel" :@"France" :@"Paris" :@"hotel de Paris" :3 :41.002371 :-102.052066];
     [hotel.photos addObject:@"hotel1"];
@@ -44,22 +44,34 @@
     
    
     _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, nil];
-    _favoritesHotels = [[NSMutableArray alloc] init];
-
-    //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];
-    //    id obj = [NSKeyedUnarchiver unarchiveObjectWithFile:@"favorites"];
-    //    NSLog(@"%@", obj);
     
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:path] == FALSE){
+        NSLog(@"I don't exist");
+    _favoritesHotels = [[NSMutableArray alloc] init];
+    }
+    else {
+        NSLog(@"I exist");
+        _favoritesHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }
     
     return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    // Sent when the application is 	about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use his method to pause the game.
+    
+    //[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_favoritesHotels] forKey:@"keyFav"];
+    //[NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:@"favorites"];
+    
     
     NSLog(@"all app pause kill");
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -67,6 +79,10 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:path];
         NSLog(@"background");
 }
 
@@ -86,6 +102,10 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    
+        [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:path];
     NSLog(@"finish");
 }
 
