@@ -46,6 +46,7 @@
     HMSHotelViewController * hotelViewController = self.viewControllers[0];
     [hotelViewController setDetailItem:self.item];
     
+    
 }
 
 - (void)didReceiveMemoryWarning
