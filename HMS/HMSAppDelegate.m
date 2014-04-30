@@ -42,20 +42,23 @@
     HMSHotel *hotel2 = [[HMSHotel alloc] initWithParams:@"Mon hotel 3 " :@"France" :@"Oaris" :@"hotel de Oaris" :3 :41.002371 :-10.052066];
     HMSHotel *hotel3 = [[HMSHotel alloc] initWithParams:@"Aon hotel 4 " :@"France" :@"Pontoise" :@"hotel de Oontoise" :3 :4.002371 :-12.052066];
     
-   
-    _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, nil];
-    
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    if ([fileManager fileExistsAtPath:path] == FALSE){
-        NSLog(@"I don't exist");
+    _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, nil];
+    
+    if ([fileManager fileExistsAtPath:searchPath] == TRUE)
+    {
+        _sharedHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:searchPath];
+    }
+    
+    if ([fileManager fileExistsAtPath:favoritesPath] == FALSE){
     _favoritesHotels = [[NSMutableArray alloc] init];
     }
     else {
-        NSLog(@"I exist");
-        _favoritesHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        _favoritesHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:favoritesPath];
     }
     
     return YES;
@@ -80,9 +83,11 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
     
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:path];
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:searchPath];
         NSLog(@"background");
 }
 
@@ -102,10 +107,12 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
-        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
     
-        [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:path];
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:searchPath];
     NSLog(@"finish");
 }
 
