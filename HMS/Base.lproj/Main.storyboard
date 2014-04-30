@@ -258,7 +258,7 @@
         <!--Comment View Controller-->
         <scene sceneID="GLE-Xl-Zvp">
             <objects>
-                <viewController id="h84-dg-bmg" customClass="HMSCommentViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="h84-dg-bmg" customClass="HMSCommentViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="k34-rg-BqN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-6g-Zhs" userLabel="First Responder" sceneMemberID="firstResponder"/>

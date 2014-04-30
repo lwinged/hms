@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17DE8611FF5748B3B91DAC7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9587A17E0DBF40A391D28720 /* libPods.a */; };
+		97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B13EDE1911403300ACC622 /* HMSModelHelper.m */; };
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
 		EE0341EA18DC68E400EA4F4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0341E918DC68E400EA4F4D /* QuartzCore.framework */; };
 		EE2817A3190CCAC7000AA99A /* HMSMathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EE2817A2190CCAC7000AA99A /* HMSMathHelper.m */; };
@@ -108,6 +109,8 @@
 
 /* Begin PBXFileReference section */
 		9587A17E0DBF40A391D28720 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97B13EDD1911403300ACC622 /* HMSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSModelHelper.h; sourceTree = "<group>"; };
+		97B13EDE1911403300ACC622 /* HMSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSModelHelper.m; sourceTree = "<group>"; };
 		A12756DFBC1042BF8264EFEC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EE0341DF18DC595F00EA4F4D /* HMSHelperIndexedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSHelperIndexedList.h; sourceTree = "<group>"; };
 		EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSHelperIndexedList.m; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 			children = (
 				EE0341DF18DC595F00EA4F4D /* HMSHelperIndexedList.h */,
 				EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */,
+				97B13EDD1911403300ACC622 /* HMSModelHelper.h */,
+				97B13EDE1911403300ACC622 /* HMSModelHelper.m */,
 				EE2817A1190CCAC7000AA99A /* HMSMathHelper.h */,
 				EE2817A2190CCAC7000AA99A /* HMSMathHelper.m */,
 			);
@@ -807,6 +812,7 @@
 				EEB62F9A18F10F9C00FBA33D /* PSTCollectionViewUpdateItem.m in Sources */,
 				EEB62F9E18F10F9C00FBA33D /* PSTGridLayoutSection.m in Sources */,
 				EEB62F9518F10F9C00FBA33D /* PSTCollectionViewController.m in Sources */,
+				97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */,
 				EEB62F9318F10F9C00FBA33D /* PSTCollectionView.m in Sources */,
 				EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */,
 				EEB62F9C18F10F9C00FBA33D /* PSTGridLayoutItem.m in Sources */,
@@ -962,8 +968,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
 				INFOPLIST_FILE = "HMS/HMS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -977,8 +984,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
 				INFOPLIST_FILE = "HMS/HMS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

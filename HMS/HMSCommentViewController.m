@@ -19,41 +19,47 @@
 
 @implementation HMSCommentViewController
 
+
 #pragma mark - View lifecycle
+
+- (void)setCommentItem:(NSMutableArray *)newItem
+{
+    if (_commentItem != newItem) {
+        _commentItem = newItem;
+    }
+
+    [self configureView];
+}
+
+- (void)configureView
+{
+    if (self.commentItem){ }
+}
 
 - (void)viewDidLoad
 {
     self.delegate = self;
     self.dataSource = self;
     [super viewDidLoad];
+    [self configureView];
+    
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
-    
-    self.messageInputView.textView.placeHolder = @"New Message";
-    self.sender = @"Jobs";
-    
+ 
     [self setBackgroundColor:[UIColor whiteColor]];
+
+    self.messages = [[NSMutableArray alloc] initWithObjects:nil];
+    [self.messages addObject:[[JSMessage alloc] initWithText:@"Message enable" sender:@"Message" date:[NSDate date]]];
     
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     [[JSMessage alloc] initWithText:@"JSMessagesViewController is simple and easy to use." sender:kSubtitleJobs date:[NSDate distantPast]],
-                     [[JSMessage alloc] initWithText:@"It's highly customizable." sender:kSubtitleWoz date:[NSDate distantPast]],
-                     [[JSMessage alloc] initWithText:@"It even has data detectors. You can call me tonight. My cell number is 452-123-4567. \nMy website is www.hexedbits.com." sender:kSubtitleJobs date:[NSDate distantPast]],
-                     [[JSMessage alloc] initWithText:@"Group chat. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!" sender:kSubtitleCook date:[NSDate distantPast]],
-                     [[JSMessage alloc] initWithText:@"Group chat. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!" sender:kSubtitleJobs date:[NSDate date]],
-                     [[JSMessage alloc] initWithText:@"Group chat. Sound effects and images included. Animations are smooth. Messages can be of arbitrary size!" sender:kSubtitleWoz date:[NSDate date]],
-                     nil];
-    
-    
-    for (NSUInteger i = 0; i < 3; i++) {
-        [self.messages addObjectsFromArray:self.messages];
+    for (NSInteger i = 0; i < [_commentItem count]; ++i)
+    {
+        NSDictionary *dico = [_commentItem objectAtIndex:i];
+        NSLog(@"Author %@ Comments %@", [dico valueForKey:@"author"], [dico valueForKey:@"comment"]);
+        [self.messages addObject:[[JSMessage alloc] initWithText:[dico valueForKey:@"comment"] sender:[dico valueForKey:@"author"] date:[NSDate date]]];
     }
     
-    self.avatars = [[NSDictionary alloc] initWithObjectsAndKeys:
-                    [JSAvatarImageFactory avatarImageNamed:@"demo-avatar-jobs" croppedToCircle:YES], kSubtitleJobs,
-                    [JSAvatarImageFactory avatarImageNamed:@"demo-avatar-woz" croppedToCircle:YES], kSubtitleWoz,
-                    [JSAvatarImageFactory avatarImageNamed:@"demo-avatar-cook" croppedToCircle:YES], kSubtitleCook,
-                    nil];
     
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated

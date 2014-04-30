@@ -7,11 +7,16 @@
 //
 
 #import "JSMessagesViewController.h"
+#import "HMSHotel.h"
 
 @interface HMSCommentViewController : JSMessagesViewController <JSMessagesViewDataSource, JSMessagesViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSDictionary *avatars;
 
+@property (strong, nonatomic) NSMutableArray *commentItem;
+
+
+- (void)setCommentItem:(NSMutableArray *)newItem;
 
 @end

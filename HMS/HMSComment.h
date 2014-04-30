@@ -12,8 +12,9 @@
 
 @property (nonatomic,strong) NSString * author;
 @property (nonatomic,strong) NSString * comment;
+@property (nonatomic,strong) NSString * date;
 
--(id)initWithParams:(NSString *)author :(NSString *)comment;
+-(id)initWithParams:(NSString *)author :(NSString *)comment: (NSString *)date;
 
 
 @end
