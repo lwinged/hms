@@ -59,9 +59,9 @@
     if ((self = [super init]))
     {
         
-        [decoder decodeObjectForKey:@"name"];
-        [decoder decodeObjectForKey:@"type"];
-        [decoder decodeObjectForKey:@"photos"];
+       _name = [decoder decodeObjectForKey:@"name"];
+       _type =  [decoder decodeObjectForKey:@"type"];
+       _photos = [decoder decodeObjectForKey:@"photos"];
         
     }
     return self;

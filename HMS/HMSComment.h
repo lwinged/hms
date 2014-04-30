@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HMSComment : NSObject
+@interface HMSComment : NSObject <NSCoding>
 
 @property (nonatomic,strong) NSString * author;
 @property (nonatomic,strong) NSString * comment;

@@ -39,7 +39,7 @@
     [self.rooms insertObject:room atIndex:0];
 }
 
-#pragma mark - NSCoding
+#pragma mark - NSCoding	
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
@@ -58,14 +58,14 @@
     if ((self = [super init]))
     {
         
-        [decoder decodeObjectForKey:@"name"];
-        [decoder decodeObjectForKey:@"country"];
-        [decoder decodeObjectForKey:@"city"];
-        [decoder decodeObjectForKey:@"description"];
-        [decoder decodeIntegerForKey:@"stars"];
-        [decoder decodeObjectForKey:@"rooms"];
-        [decoder decodeObjectForKey:@"photos"];
-        [decoder decodeObjectForKey:@"comments"];
+       _name = [decoder decodeObjectForKey:@"name"];
+       _country = [decoder decodeObjectForKey:@"country"];
+       _city =  [decoder decodeObjectForKey:@"city"];
+       _description = [decoder decodeObjectForKey:@"description"];
+       _stars =  [decoder decodeIntegerForKey:@"stars"];
+       _rooms = [decoder decodeObjectForKey:@"rooms"];
+       _photos = [decoder decodeObjectForKey:@"photos"];
+       _comments = [decoder decodeObjectForKey:@"comments"];
 
 
     }

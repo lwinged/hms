@@ -26,5 +26,25 @@
     return self;
 }
 
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.author   forKey:@"author"];
+    [coder encodeObject:self.comment  forKey:@"comment"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if ((self = [super init]))
+    {
+        
+       _author = [decoder decodeObjectForKey:@"author"];
+       _comment = [decoder decodeObjectForKey:@"comment"];
+        
+    }
+    return self;
+}
+
 
 @end
