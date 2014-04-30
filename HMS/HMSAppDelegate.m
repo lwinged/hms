@@ -24,7 +24,7 @@
     
     HMSRoom * room = [[HMSRoom alloc] initWithParams:@"ma chambre" :@"Deluxe"];
     [room.photos addObject:@"hotel4"];
-    
+
     HMSRoom * room1 = [[HMSRoom alloc] initWithParams:@"ma room" :@"Normal"];
     [room1.photos addObject:@"hotel5"];
     
