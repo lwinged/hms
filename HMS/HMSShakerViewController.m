@@ -48,7 +48,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
 
     //enleve la transparence car il faut deplacer le contenu avec le edge = none bar noire
     self.title = @"Shaker";
-    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Shake" style:UIBarButtonItemStylePlain target:self action:@selector(enableShaker)];
 ;
 

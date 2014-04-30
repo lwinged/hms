@@ -204,7 +204,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </mapView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="BMA-gi-ILr"/>
                     <connections>
                         <outlet property="mapView" destination="Bxw-Hu-F26" id="hQP-nm-0eK"/>
@@ -258,7 +257,7 @@
         <!--Comment View Controller-->
         <scene sceneID="GLE-Xl-Zvp">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="h84-dg-bmg" customClass="HMSCommentViewController" sceneMemberID="viewController">
+                <viewController id="h84-dg-bmg" customClass="HMSCommentViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="k34-rg-BqN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ny-6g-Zhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -268,7 +267,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="UV0-iD-ZZI">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="qp1-Kz-GSE" customClass="HMSTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="qp1-Kz-GSE" customClass="HMSTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uNd-qN-2lr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tD1-Wa-0HV">
