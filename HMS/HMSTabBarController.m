@@ -51,6 +51,8 @@
     HMSCommentViewController * commentViewController = self.viewControllers[1];
     [commentViewController setCommentItem:commentView.comments];
 
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

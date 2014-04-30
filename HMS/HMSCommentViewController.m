@@ -42,7 +42,7 @@
     self.dataSource = self;
     [super viewDidLoad];
     [self configureView];
-    
+
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
  
@@ -57,8 +57,6 @@
         NSLog(@"Author %@ Comments %@", [dico valueForKey:@"author"], [dico valueForKey:@"comment"]);
         [self.messages addObject:[[JSMessage alloc] initWithText:[dico valueForKey:@"comment"] sender:[dico valueForKey:@"author"] date:[NSDate date]]];
     }
-    
-    
    
 }
 
@@ -76,28 +74,10 @@
     return self.messages.count;
 }
 
-#pragma mark - Messages view delegate: REQUIRED
 
-- (void)didSendText:(NSString *)text fromSender:(NSString *)sender onDate:(NSDate *)date
-{
-    if ((self.messages.count - 1) % 2) {
-        [JSMessageSoundEffect playMessageSentSound];
-    }
-    else {
-        // for demo purposes only, mimicing received messages
-        [JSMessageSoundEffect playMessageReceivedSound];
-        sender = arc4random_uniform(10) % 2 ? kSubtitleCook : kSubtitleWoz;
-    }
-    
-    [self.messages addObject:[[JSMessage alloc] initWithText:text sender:sender date:date]];
-    
-    [self finishSend];
-    [self scrollToBottomAnimated:YES];
-}
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
       return JSBubbleMessageTypeIncoming;
 }
 

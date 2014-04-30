@@ -79,31 +79,31 @@
     if ([self.delegate respondsToSelector:@selector(allowsPanToDismissKeyboard)]) {
         allowsPan = [self.delegate allowsPanToDismissKeyboard];
     }
+  //masquer l'input text
+//    UIPanGestureRecognizer *pan = allowsPan ? _tableView.panGestureRecognizer : nil;
     
-    UIPanGestureRecognizer *pan = allowsPan ? _tableView.panGestureRecognizer : nil;
-    
-    JSMessageInputView *inputView = [[JSMessageInputView alloc] initWithFrame:inputFrame
-                                                                        style:inputViewStyle
-                                                                     delegate:self
-                                                         panGestureRecognizer:pan];
+//    JSMessageInputView *inputView = [[JSMessageInputView alloc] initWithFrame:inputFrame
+//                                                                        style:inputViewStyle
+//                                                                     delegate:self
+//                                                         panGestureRecognizer:pan];
     
     if (!allowsPan) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureRecognizer:)];
         [_tableView addGestureRecognizer:tap];
     }
     
-    if ([self.delegate respondsToSelector:@selector(sendButtonForInputView)]) {
-        UIButton *sendButton = [self.delegate sendButtonForInputView];
-        [inputView setSendButton:sendButton];
-    }
-    
-    inputView.sendButton.enabled = NO;
-    [inputView.sendButton addTarget:self
-                             action:@selector(sendPressed:)
-                   forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:inputView];
-    _messageInputView = inputView;
+//    if ([self.delegate respondsToSelector:@selector(sendButtonForInputView)]) {
+//        UIButton *sendButton = [self.delegate sendButtonForInputView];
+//        [inputView setSendButton:sendButton];
+//    }
+//    
+//    inputView.sendButton.enabled = NO;
+//    [inputView.sendButton addTarget:self
+//                             action:@selector(sendPressed:)
+//                   forControlEvents:UIControlEventTouchUpInside];
+//    
+//    //[self.view addSubview:inputView];
+//    _messageInputView = inputView;
 }
 
 #pragma mark - View lifecycle
