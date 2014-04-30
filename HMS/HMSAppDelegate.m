@@ -71,7 +71,12 @@
     
     //[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_favoritesHotels] forKey:@"keyFav"];
     //[NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:@"favorites"];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
     
+    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
+    [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
     
     NSLog(@"all app pause kill");
     
@@ -87,7 +92,7 @@
     NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
     
     [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:searchPath];
+    [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
         NSLog(@"background");
 }
 
@@ -107,12 +112,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
-    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
-    
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:searchPath];
     NSLog(@"finish");
 }
 
