@@ -42,14 +42,18 @@
     self.dataSource = self;
     [super viewDidLoad];
     [self configureView];
-
+    
+    //remove input text view
+    [[self.view.subviews lastObject] removeFromSuperview];
+    
+    //fix under top bar
+    self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+20,0,self.tabBarController.tabBar.frame.size.height+5,0);
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
  
     [self setBackgroundColor:[UIColor whiteColor]];
 
     self.messages = [[NSMutableArray alloc] initWithObjects:nil];
-    [self.messages addObject:[[JSMessage alloc] initWithText:@"Message enable" sender:@"Message" date:[NSDate date]]];
     
     for (NSInteger i = 0; i < [_commentItem count]; ++i)
     {
@@ -57,7 +61,7 @@
         NSLog(@"Author %@ Comments %@", [dico valueForKey:@"author"], [dico valueForKey:@"comment"]);
         [self.messages addObject:[[JSMessage alloc] initWithText:[dico valueForKey:@"comment"] sender:[dico valueForKey:@"author"] date:[NSDate date]]];
     }
-   
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -74,7 +78,11 @@
     return self.messages.count;
 }
 
+#pragma mark - Messages view delegate: REQUIRED
 
+- (void)didSendText:(NSString *)text fromSender:(NSString *)sender onDate:(NSDate *)date
+{
+}
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
