@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HMSMasterViewController : UITableViewController
+@interface HMSMasterViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+
+- (void) reloadDataTableView:(BOOL)animated;
+
 
 @end

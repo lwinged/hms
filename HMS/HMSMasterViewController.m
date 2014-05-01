@@ -38,7 +38,6 @@
     
     _hotels = appDelegate.sharedHotels;
     
-    
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_hotels :@"city"]];
     
     indices = [_objects valueForKey:@"headerTitle"];
@@ -107,6 +106,18 @@
         
         [[segue destinationViewController] setDetailItem:filteredArray];
     }
+}
+
+- (void) reloadDataTableView:(BOOL)animated
+{
+    _hotels = appDelegate.sharedHotels;
+    _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_hotels :@"city"]];
+    indices = [_objects valueForKey:@"headerTitle"];
+    
+    [self.tableView reloadData];
+
+    if (animated)
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.tableView.numberOfSections)] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 
