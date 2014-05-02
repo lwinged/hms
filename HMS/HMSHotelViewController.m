@@ -11,6 +11,10 @@
 #import "JPSThumbnail.h"
 #import "JPSThumbnailAnnotation.h"
 
+#import "SDWebImageDecoder.h"
+#import "SDWebImageManager.h"
+#import "SDWebImageOperation.h"
+
 @interface HMSHotelViewController ()
 
 - (void)configureView;
@@ -50,14 +54,13 @@
     self.mapView.delegate = self;
     
 
-    JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
-    
     NSString * path = @"";
     
     if ([[_detailItem photos] count] > 0)
-        path = [NSString stringWithFormat:@"%@.jpeg", [[_detailItem photos] objectAtIndex:0]];;
-
-    thumbnail.image = [UIImage imageNamed:path];
+        path = [[_detailItem photos] objectAtIndex:0];
+    
+    JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
+    
     thumbnail.title = [_detailItem name];
     thumbnail.subtitle = [_detailItem description];
     
@@ -67,8 +70,16 @@
         [self displaySlideShow];
     };
     
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadWithURL:[NSURL URLWithString:path] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                            if (error)
+                                                MWLog(@"SDWebImage failed to download image: %@", error);
+        
+                                            thumbnail.image = image;
+                                            [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
+                                        }];
+
     
-    [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
     [self.mapView setCenterCoordinate:thumbnail.coordinate animated:YES];
     
     MKCoordinateRegion region;
@@ -168,7 +179,7 @@
     //photos de l'hotel
     for (NSInteger i = 0; i < [[self.detailItem photos] count]; ++i)
     {
-        photo = [MWPhoto photoWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[[self.detailItem photos] objectAtIndex:i] ofType:@"jpeg"]]];
+        photo = [MWPhoto photoWithURL:[NSURL URLWithString:[[self.detailItem photos] objectAtIndex:i]]];
         photo.caption = [self.detailItem name];
         [_photos addObject:photo];
         [_thumbs addObject:photo];
@@ -179,7 +190,7 @@
     {
         for (NSInteger i = 0; i < room.photos.count; ++i)
         {
-            photo = [MWPhoto photoWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[room.photos objectAtIndex:i] ofType:@"jpeg"]]];
+            photo = [MWPhoto photoWithURL:[NSURL URLWithString:[room.photos objectAtIndex:i]]];
             photo.caption = [[NSString alloc] initWithFormat:@"%@ - %@", room.name, room.type];
             [_photos addObject:photo];
             [_thumbs addObject:photo];

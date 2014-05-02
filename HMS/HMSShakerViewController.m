@@ -17,6 +17,9 @@
 #import "HMSTabBarController.h"
 #import "HMSHotel.h"
 #import "HMSMathHelper.h"
+#import "SDWebImageDecoder.h"
+#import "SDWebImageManager.h"
+#import "SDWebImageOperation.h"
 
 @interface HMSShakerViewController ()
 {
@@ -87,6 +90,8 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
     if (currentLocation != nil)
     {
+        [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
+
         MKCoordinateRegion region;
         region.center = currentLocation.coordinate;
         
@@ -96,7 +101,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
         span.longitudeDelta = 0.05;
         region.span = span;
         [self.mapView setRegion:region animated:TRUE];
-        [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
 
     }
 
@@ -292,9 +296,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     for (HMSHotel * h in hotelsLocated)
     {
         if (h.photos.count > 0)
-            path = [NSString stringWithFormat:@"%@.jpeg", h.photos[0]];
-        else
-            path = @"";
+            path = h.photos[0];
         
         thumbnail = [[JPSThumbnail alloc] init];
         thumbnail.image = [UIImage imageNamed:path];
@@ -318,8 +320,15 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
         
         annotationView.alpha = 1.0;
         
-        [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
-        
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        [manager downloadWithURL:[NSURL URLWithString:path] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+            if (error)
+                NSLog(@"SDWebImage failed to download image: %@", error);
+            
+            thumbnail.image = image;
+            [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
+        }];
+
     }
 
     [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
