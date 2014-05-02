@@ -14,6 +14,7 @@
 @interface HMSMenuPanelTableViewController ()
 {
     NSArray * _objects;
+    NSArray* _thumbnails;
 }
 
 @end
@@ -34,9 +35,12 @@
     [super viewDidLoad];
     
     _objects = [[NSArray alloc] initWithObjects:@"Search", @"Shaker", @"Favourite", nil];
+    _thumbnails = [[NSArray alloc] initWithObjects:@"ic_search.png", @"ic_phone.png", @"ic_heart.png", nil];
+    
     
     // under status bar
     self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    self.tableView.backgroundColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0];
     
 }
 
@@ -65,8 +69,10 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
     
+    cell.imageView.image = [UIImage imageNamed:[_thumbnails objectAtIndex:indexPath.row]];
     cell.textLabel.text = _objects[indexPath.row];
-    cell.backgroundColor = [UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]; //ligthColor
+    cell.backgroundColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]; //ligthColor
     cell.textColor = [UIColor whiteColor];
     
     //cell.textColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]; //darkColor
