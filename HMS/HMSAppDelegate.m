@@ -42,8 +42,12 @@
     HMSHotel *hotel2 = [[HMSHotel alloc] initWithParams:@"Mon hotel 3 " :@"France" :@"Oaris" :@"hotel de Oaris" :3 :41.002371 :-10.052066];
     HMSHotel *hotel3 = [[HMSHotel alloc] initWithParams:@"Aon hotel 4 " :@"France" :@"Pontoise" :@"hotel de Oontoise" :3 :4.002371 :-12.052066];
     
+    HMSHotel *hotel4 = [[HMSHotel alloc] initWithParams:@"Mon hotel 2 " :@"Chine" :@"Pekin" :@"hotel de Pekin" :3 :60.002371 :-80.052066];
+    HMSHotel *hotel5 = [[HMSHotel alloc] initWithParams:@"Mon hotel 3 " :@"Chine" :@"Shanghai" :@"hotel de Shanghai" :3 :0.002371 :-0.052066];
+    HMSHotel *hotel6 = [[HMSHotel alloc] initWithParams:@"Aon hotel 4 " :@"Vietnam" :@"Hanoi" :@"hotel de Viet" :3 :10.002371 :-12.052066];
+    
    
-    _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, nil];
+    _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, nil];
     _favoritesHotels = [[NSMutableArray alloc] init];
 
     //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];

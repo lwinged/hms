@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HMSMasterViewController : UITableViewController
+@interface HMSMasterViewController : UITableViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIButton *countryButton;
+
 
 @end

@@ -36,7 +36,7 @@
 
 - (void) addRoom:(HMSRoom *)room
 {
-    [self.rooms insertObject:room atIndex:0];
+    [self.rooms insertObject:room atIndex:0];	
 }
 
 #pragma mark - NSCoding

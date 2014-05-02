@@ -1,2 +1,2 @@
-platform :ios, '7.0'
-pod 'JSMessagesViewController'
+platform :ios, '5.0'
+pod "SBPickerSelector", "~> 1.0.1"
