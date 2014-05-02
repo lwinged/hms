@@ -108,8 +108,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
     if (motion == UIEventSubtypeMotionShake && !self.navigationItem.rightBarButtonItem.isEnabled)
     {
-
-        
         if (radialView.progressCounter + 5 >= 15)
         {
             radialView.progressCounter = 15;
@@ -178,13 +176,12 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
     });
     
-    
-    int x = self.view.center.x - 40;
-    int y = self.view.center.y / 3;
-    
-    CGRect frame = CGRectMake(x, y, 80, 80);
+
+    CGRect frame = CGRectMake(0, 0, 100, 100);
     
     radialView = [[MDRadialProgressView alloc] initWithFrame:frame];
+
+    [radialView setCenter:CGPointMake(self.view.center.x, self.view.center.y)];
     
     radialView.progressTotal = 15;
     radialView.progressCounter = 0;
@@ -218,6 +215,11 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
 }
 
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    [radialView setCenter:CGPointMake(self.view.center.x, self.view.center.y)];
+}
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     MKAnnotationView *aV;
