@@ -29,6 +29,7 @@
     
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //Text in the status bar turn into white
     
     NSURLSessionDataTask *task = [manager GET:@"https://gist.githubusercontent.com/lwinged/0a51fe99cec1e0c5e98e/raw/cd3d4dc4b3cd0d9b62261afb97ffab8f74bfea03/data.json" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
 
