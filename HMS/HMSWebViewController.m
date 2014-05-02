@@ -9,8 +9,13 @@
 #import "HMSWebViewController.h"
 
 @interface HMSWebViewController ()
+{
+    BOOL _deleteWhiteBar;
+}
 
 @end
+
+#define TAG 222
 
 @implementation HMSWebViewController
 
@@ -27,10 +32,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.webView.delegate = self;
+
     //fix under top bar
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height,0,self.tabBarController.tabBar.frame.size.height,0);
     
+    // fix black bar -> result contentinset
+    _deleteWhiteBar = YES;
+    CGRect whiteBarFrame = CGRectMake(0, 0, self.tabBarController.tabBar.frame.size.width, self.webView.frame.size.height);
+    UIView *view = [[UIView alloc] initWithFrame:whiteBarFrame];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    view.tag = TAG;
+    [self.webView addSubview:view];
+    
+
     NSString *fullURL = @"http://www.booking.com";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
@@ -43,15 +58,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (_deleteWhiteBar)
+    {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %ld", @"tag", TAG];
+        NSArray *filteredArray = [self.webView.subviews filteredArrayUsingPredicate:predicate];
+        
+        if (filteredArray.count > 0)
+            [[filteredArray firstObject] removeFromSuperview];
+
+        _deleteWhiteBar = NO;
+    }
+    
 }
-*/
 
 @end

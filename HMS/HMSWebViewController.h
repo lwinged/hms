@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HMSWebViewController : UIViewController
+@interface HMSWebViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end

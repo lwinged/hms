@@ -145,7 +145,7 @@
                     <webView key="view" contentMode="scaleToFill" id="xE2-55-7Tg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </webView>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="c71-0w-6lD"/>
                     <navigationItem key="navigationItem" id="Cdv-ZA-vsH"/>
