@@ -10,6 +10,7 @@
 		10E4321F19139DEB00F2A16D /* ic_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E4321C19139DEB00F2A16D /* ic_heart.png */; };
 		10E4322019139DEB00F2A16D /* ic_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E4321D19139DEB00F2A16D /* ic_phone.png */; };
 		10E4322119139DEB00F2A16D /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E4321E19139DEB00F2A16D /* ic_search.png */; };
+		10E432251913BE3400F2A16D /* cellstylebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E432241913BE3400F2A16D /* cellstylebg.png */; };
 		17DE8611FF5748B3B91DAC7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9587A17E0DBF40A391D28720 /* libPods.a */; };
 		97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B13EDE1911403300ACC622 /* HMSModelHelper.m */; };
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
@@ -114,6 +115,7 @@
 		10E4321C19139DEB00F2A16D /* ic_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_heart.png; path = ../../ic_heart.png; sourceTree = "<group>"; };
 		10E4321D19139DEB00F2A16D /* ic_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_phone.png; path = ../../ic_phone.png; sourceTree = "<group>"; };
 		10E4321E19139DEB00F2A16D /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_search.png; path = ../../ic_search.png; sourceTree = "<group>"; };
+		10E432241913BE3400F2A16D /* cellstylebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cellstylebg.png; path = ../../cellstylebg.png; sourceTree = "<group>"; };
 		9587A17E0DBF40A391D28720 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B13EDD1911403300ACC622 /* HMSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSModelHelper.h; sourceTree = "<group>"; };
 		97B13EDE1911403300ACC622 /* HMSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSModelHelper.m; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		EE0341D718DC12E400EA4F4D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10E432241913BE3400F2A16D /* cellstylebg.png */,
 				10E4321C19139DEB00F2A16D /* ic_heart.png */,
 				10E4321D19139DEB00F2A16D /* ic_phone.png */,
 				10E4321E19139DEB00F2A16D /* ic_search.png */,
@@ -734,6 +737,7 @@
 				EEB62FBB18F1114700FBA33D /* hotel3.jpeg in Resources */,
 				EEB62FB018F10F9C00FBA33D /* MWPhotoBrowser.bundle in Resources */,
 				EEB62FB918F1114700FBA33D /* hotel1.jpeg in Resources */,
+				10E432251913BE3400F2A16D /* cellstylebg.png in Resources */,
 				EE6DA3FC18D9907300970A22 /* InfoPlist.strings in Resources */,
 				EE6DA40518D9907300970A22 /* Main.storyboard in Resources */,
 				EEB62F9F18F10F9C00FBA33D /* LICENSE in Resources */,
