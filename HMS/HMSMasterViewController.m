@@ -28,7 +28,7 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor: [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]];
     
     [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];

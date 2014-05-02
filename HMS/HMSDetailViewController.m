@@ -79,7 +79,6 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
-    //cell.detailTextLabel.text = tempName; //NOMBMRE D'ETOILE HERE
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
                            objectAtIndex:indexPath.row];
     cell.textColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]; //DARKCOLOR
