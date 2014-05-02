@@ -101,7 +101,8 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        
+     
+        appDelegate.saved = YES;
         // delete row
         NSString * name = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
                            objectAtIndex:indexPath.row];

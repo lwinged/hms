@@ -63,6 +63,7 @@
     [appDelegate.favoritesHotels addObject:self.item];
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    appDelegate.saved = YES;
 }
 
 /*

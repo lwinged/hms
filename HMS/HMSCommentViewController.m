@@ -47,7 +47,7 @@
     [[self.view.subviews lastObject] removeFromSuperview];
     
     //fix under top bar
-    self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+20,0,self.tabBarController.tabBar.frame.size.height+5,0);
+    self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height,0,self.tabBarController.tabBar.frame.size.height+5,0);
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
  

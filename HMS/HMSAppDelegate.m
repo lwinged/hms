@@ -55,6 +55,7 @@
     [task resume];
     
   
+    _saved = NO;
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
     NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
@@ -77,15 +78,20 @@
     // Sent when the application is 	about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use his method to pause the game.
     
-    //[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_favoritesHotels] forKey:@"keyFav"];
-    //[NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:@"favorites"];
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
-    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
-    
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
-    [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
-    
+    if (_saved)
+    {
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+        NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
+        
+        [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
+        [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
+        _saved = NO;
+        NSLog(@"saved");
+
+    }
+
+
     NSLog(@"all app pause kill");
     
 }
@@ -95,12 +101,16 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
-    NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
-    
-    [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
-    [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
+    if (_saved)
+    {
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
+        NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
+        
+        [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
+        [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
+        _saved = NO;
+    }
         NSLog(@"background");
 }
 

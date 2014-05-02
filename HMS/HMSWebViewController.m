@@ -28,7 +28,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *fullURL = @"http://google.com";
+    //fix under top bar
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height,0,self.tabBarController.tabBar.frame.size.height,0);
+    
+    NSString *fullURL = @"http://www.booking.com";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
