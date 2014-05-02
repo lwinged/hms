@@ -22,9 +22,19 @@
 
 @implementation HMSMasterViewController
 
-- (void)awakeFromNib
+- (void)awakeFromNib //TRACY - NAVIGATIONBAR AND TABBAR
 {
     [super awakeFromNib];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]];
+    
+    [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]];
+    
 }
 
 - (void)viewDidLoad
@@ -74,6 +84,35 @@
     return cell;
 }
 
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+	for (int i=0; i < indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+    
+	return retInt + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+    NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    if (realRow % 2) {
+        cell.backgroundColor = [UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]; //lightColor
+        cell.textColor = [UIColor whiteColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]; //darkColor
+        
+    }
+    
+}
 
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
 	return [[_objects objectAtIndex:section] objectForKey:@"headerTitle"];

@@ -51,7 +51,7 @@
     
     [[JSBubbleView appearance] setFont:[UIFont systemFontOfSize:16.0f]];
  
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor whiteColor]]; //background
 
     self.messages = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -90,15 +90,15 @@
 }
 
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type
-                       forRowAtIndexPath:(NSIndexPath *)indexPath
+                       forRowAtIndexPath:(NSIndexPath *)indexPath //COLOR BUBBLE
 {
     if (indexPath.row % 2) {
         return [JSBubbleImageViewFactory bubbleImageViewForType:type
-                                                          color:[UIColor js_bubbleLightGrayColor]];
+                                                          color:[UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]];
     }
     
     return [JSBubbleImageViewFactory bubbleImageViewForType:type
-                                                      color:[UIColor js_bubbleBlueColor]];
+                                                      color:[UIColor js_bubbleLightGrayColor]];
 }
 
 - (JSMessageInputViewStyle)inputViewStyle

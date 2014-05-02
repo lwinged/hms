@@ -66,6 +66,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
     
     cell.textLabel.text = _objects[indexPath.row];
+    cell.backgroundColor = [UIColor colorWithRed:(200/255.0) green:(173/255.0) blue:(127/255.0) alpha:1.0]; //ligthColor
+    cell.textColor = [UIColor whiteColor];
+    
+    //cell.textColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]; //darkColor
     
     return cell;
 }
