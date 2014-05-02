@@ -66,7 +66,7 @@
     picker.delegate = self;
     picker.dataSource = self;
     picker.showsSelectionIndicator = YES;
-    picker.backgroundColor = [UIColor whiteColor];
+    picker.backgroundColor = [UIColor colorWithRed:229/255.0f green:229/255.0f blue:229/255.0f alpha:1.0f];
     picker.layer.cornerRadius = 5;
     [picker selectRow:_lastSelected inComponent:0 animated:YES];
     [self.view addSubview:picker];
