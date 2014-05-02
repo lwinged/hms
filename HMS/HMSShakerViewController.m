@@ -46,7 +46,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
 {
     [super viewDidLoad];
 
-    //enleve la transparence car il faut deplacer le contenu avec le edge = none bar noire
     self.title = @"Shaker";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Shake" style:UIBarButtonItemStylePlain target:self action:@selector(enableShaker)];
 ;
@@ -77,7 +76,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
@@ -88,7 +86,20 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     currentLocation = [locations lastObject];
     
     if (currentLocation != nil)
+    {
+        MKCoordinateRegion region;
+        region.center = currentLocation.coordinate;
+        
+        // Le span est le niveau de zoom
+        MKCoordinateSpan span;
+        span.latitudeDelta = 0.05;
+        span.longitudeDelta = 0.05;
+        region.span = span;
+        [self.mapView setRegion:region animated:TRUE];
         [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
+
+    }
+
 }
 
 
@@ -258,8 +269,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     NSMutableArray *locatedHotels = [[NSMutableArray alloc] init];
     NSArray *hotel_array = appDelegate.sharedHotels;
     
-//    NSLog(@"user location ----> %@", currentLocation);
-
     for (HMSHotel * h in hotel_array)
     {
         if ([HMSMathHelper distanceFromAToB:currentLocation.coordinate.latitude :currentLocation.coordinate.longitude :h.latitude :h.longitude] <= RAYON_KM)
@@ -310,7 +319,6 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
         [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
         
     }
-    
 
     [self.mapView setCenterCoordinate:currentLocation.coordinate animated:YES];
     

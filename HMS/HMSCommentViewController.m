@@ -58,7 +58,6 @@
     for (NSInteger i = 0; i < [_commentItem count]; ++i)
     {
         NSDictionary *dico = [_commentItem objectAtIndex:i];
-        NSLog(@"Author %@ Comments %@", [dico valueForKey:@"author"], [dico valueForKey:@"comment"]);
         [self.messages addObject:[[JSMessage alloc] initWithText:[dico valueForKey:@"comment"] sender:[dico valueForKey:@"author"] date:[NSDate date]]];
     }
     

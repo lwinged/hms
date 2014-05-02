@@ -72,9 +72,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    NSLog(@"%@",_objects[indexPath.row]);
-
     if (indexPath.row == 0)
     {
      self.sidePanelController.centerPanel = [self.storyboard instantiateViewControllerWithIdentifier:@"centerViewController"];

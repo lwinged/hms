@@ -36,14 +36,8 @@
     
     appDelegate = [[UIApplication sharedApplication] delegate];
     
-    NSLog(@"->> %@", appDelegate.favoritesHotels);
-
-    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %ld", @"id", [self.item id]];
     NSArray *filteredArray = [appDelegate.favoritesHotels filteredArrayUsingPredicate:predicate];
-    
-    NSLog(@"->> %@", filteredArray);
-    
     
     if (filteredArray.count > 0)
         self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -66,13 +60,9 @@
 
 - (IBAction)saveHotel:(id)sender
 {
-    NSLog(@"Hotel saved");
-    
     [appDelegate.favoritesHotels addObject:self.item];
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    
-    
 }
 
 /*

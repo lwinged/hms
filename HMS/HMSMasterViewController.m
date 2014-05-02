@@ -33,7 +33,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"Search";
-    
+        
     appDelegate = [[UIApplication sharedApplication] delegate];
     
     _hotels = appDelegate.sharedHotels;

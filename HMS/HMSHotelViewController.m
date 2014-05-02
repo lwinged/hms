@@ -69,14 +69,17 @@
     
     
     [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
-//
-//    MKCoordinateRegion region;
-//    region.center.latitude = thumbnail.coordinate.latitude;
-//    region.center.longitude = thumbnail.coordinate.longitude;
-    
     [self.mapView setCenterCoordinate:thumbnail.coordinate animated:YES];
-    //[self.mapView setRegion:region animated:YES];
     
+    MKCoordinateRegion region;
+    region.center.latitude = thumbnail.coordinate.latitude;
+    region.center.longitude = thumbnail.coordinate.longitude;
+    // Le span est le niveau de zoom
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.05;
+    span.longitudeDelta = 0.05;
+    region.span = span;
+    [self.mapView setRegion:region animated:TRUE];
     
 }
 
