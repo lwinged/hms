@@ -23,17 +23,17 @@
     
     //NSLog(@"start");
 
-    NSString *master = @"[{\"name\":\"Hotel California\", \"country\":\"USA\", \"city\":\"California\", \"description\":\"Such a lovely place\", \"stars\":\"4\", \"rooms\":[{\"name\":\"King Size\", \"type\":\"deluxe\", \"photos\":[\"hotel4\" ]},{\"name\":\"Queen Size\", \"type\":\"deluxe\", \"photos\":[\"hotel5\"]},{\"name\":\"Prince Size\", \"type\":\"deluxe\", \"photos\":[]}], \"photos\":[\"hotel1\", \"hotel2\", \"hotel3\"],\"comments\":[{\"author\":\"Tevy\", \"comments\":\"Such a lovely face\", \"date\":\"13/04/14\" },{\"author\":\"Timmy\", \"comments\":\"Plenty of room at the hotel California.\", \"date\":\"12/05/14\" },{\"author\":\"Tommy\", \"comments\":\"Any time of year, you can find it here!\", \"date\":\"08/04/15\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Winner\", \"country\":\"France\", \"city\":\"Paris\", \"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[\"hotel5\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Winner2\", \"country\":\"France\", \"city\":\"Paris\",\"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"name\":\"Hotel Scheisse\", \"country\":\"Germany\", \"city\":\"Berlin\", \"description\":\"Jawohl!!!\", \"stars\":\"5\", \"rooms\":[{\"name\":\"Banana\", \"type\":\"deluxe\", \"photos\":[\"hotel1\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Lex\", \"comments\":\"Ja, ja! This place is nice and comfy. Could be better without that iron wall isolating this hotel from the city. But Ich bin ein Berliner, huh?\", \"date\":\"11/07/14\" },{\"author\":\"Lux\", \"comments\":\"Ich bin eine schone badekappe!!\", \"date\":\"12/07/14\" }], \"latitude\":5, \"longitude\":4}]";
+    NSString *master = @"[{\"id\":1, \"name\":\"Hotel California\", \"country\":\"USA\", \"city\":\"California\", \"description\":\"Such a lovely place\", \"stars\":\"4\", \"rooms\":[{\"name\":\"King Size\", \"type\":\"deluxe\", \"photos\":[\"hotel4\" ]},{\"name\":\"Queen Size\", \"type\":\"deluxe\", \"photos\":[\"hotel5\"]},{\"name\":\"Prince Size\", \"type\":\"deluxe\", \"photos\":[]}], \"photos\":[\"hotel1\", \"hotel2\", \"hotel3\"],\"comments\":[{\"author\":\"Tevy\", \"comments\":\"Such a lovely face\", \"date\":\"13/04/14\" },{\"author\":\"Timmy\", \"comments\":\"Plenty of room at the hotel California.\", \"date\":\"12/05/14\" },{\"author\":\"Tommy\", \"comments\":\"Any time of year, you can find it here!\", \"date\":\"08/04/15\" }], \"latitude\":5, \"longitude\":4},{\"id\":2,\"name\":\"Hotel Winner\", \"country\":\"France\", \"city\":\"Paris\", \"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[\"hotel5\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"id\":3, \"name\":\"Hotel Winner2\", \"country\":\"France\", \"city\":\"Paris\",\"description\":\"Nice and ...nice.\", \"stars\":\"3\", \"rooms\":[{\"name\":\"Room 01\", \"type\":\"normal\", \"photos\":[]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Nel\", \"comments\":\"This is a really nice place. Really...\", \"date\":\"16/11/14\" }], \"latitude\":5, \"longitude\":4},{\"id\":4, \"name\":\"Hotel Scheisse\", \"country\":\"Germany\", \"city\":\"Berlin\", \"description\":\"Jawohl!!!\", \"stars\":\"5\", \"rooms\":[{\"name\":\"Banana\", \"type\":\"deluxe\", \"photos\":[\"hotel1\"]}], \"photos\":[\"hotel1\"], \"comments\":[{\"author\":\"Lex\", \"comments\":\"Ja, ja! This place is nice and comfy. Could be better without that iron wall isolating this hotel from the city. But Ich bin ein Berliner, huh?\", \"date\":\"11/07/14\" },{\"author\":\"Lux\", \"comments\":\"Ich bin eine schone badekappe!!\", \"date\":\"12/07/14\" }], \"latitude\":5, \"longitude\":4}]";
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//
+//    
+//    NSURLSessionDataTask *task = [manager GET:@"https://gist.githubusercontent.com/lwinged/0a51fe99cec1e0c5e98e/raw/cd3d4dc4b3cd0d9b62261afb97ffab8f74bfea03/data.json" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//
+//        //if json is different je reload
     
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-
-    
-    NSURLSessionDataTask *task = [manager GET:@"https://gist.githubusercontent.com/lwinged/0a51fe99cec1e0c5e98e/raw/cd3d4dc4b3cd0d9b62261afb97ffab8f74bfea03/data.json" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-
-        //if json is different je reload
-        
         NSError *e = nil;
          NSArray *myTab = [NSJSONSerialization JSONObjectWithData:[master dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&e];
         
@@ -44,13 +44,13 @@
         HMSMasterViewController * masterViewController =  nav.viewControllers[0];
         [masterViewController reloadDataTableView:YES];
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        
-        NSLog(@"Error: %@", error);
-    }];
-    
-    [task resume];
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        
+//        NSLog(@"Error: %@", error);
+//    }];
+//    
+//    [task resume];
     
   
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

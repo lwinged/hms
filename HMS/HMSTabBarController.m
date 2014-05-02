@@ -36,8 +36,14 @@
     
     appDelegate = [[UIApplication sharedApplication] delegate];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self == %@", self.item];
+    NSLog(@"->> %@", appDelegate.favoritesHotels);
+
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %ld", @"id", [self.item id]];
     NSArray *filteredArray = [appDelegate.favoritesHotels filteredArrayUsingPredicate:predicate];
+    
+    NSLog(@"->> %@", filteredArray);
+    
     
     if (filteredArray.count > 0)
         self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -47,12 +53,9 @@
     HMSHotelViewController * hotelViewController = self.viewControllers[0];
     [hotelViewController setDetailItem:self.item];
     
-    HMSHotel *commentView = (HMSHotel *) self.item;
     HMSCommentViewController * commentViewController = self.viewControllers[1];
-    [commentViewController setCommentItem:commentView.comments];
+    [commentViewController setCommentItem:[self.item comments]];
 
-    
-    
 }
 
 - (void)didReceiveMemoryWarning

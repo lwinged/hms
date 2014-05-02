@@ -11,13 +11,14 @@
 
 @implementation HMSHotel
 
-- (id)initWithParams:(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(double)latitude :(double)longitude
+- (id)initWithParams:(NSInteger)id :(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(double)latitude :(double)longitude;
 {
     
     self = [super init];
     
     if (self)
     {
+        self.id = id;
         self.name = name;
         self.country = country;
         self.city = city;
@@ -43,6 +44,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
+    [coder encodeInteger:self.id   forKey:@"id"];
     [coder encodeObject:self.name   forKey:@"name"];
     [coder encodeObject:self.country   forKey:@"country"];
     [coder encodeObject:self.city   forKey:@"city"];
@@ -57,7 +59,7 @@
 {
     if ((self = [super init]))
     {
-        
+       _id =  [decoder decodeIntegerForKey:@"id"];
        _name = [decoder decodeObjectForKey:@"name"];
        _country = [decoder decodeObjectForKey:@"country"];
        _city =  [decoder decodeObjectForKey:@"city"];

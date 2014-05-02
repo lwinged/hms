@@ -58,6 +58,8 @@
 
 @property (nonatomic, assign) float longitude;
 
+@property (nonatomic, assign) NSInteger id;
+
 
 /**
  Initialize a new HMSHotel object
@@ -68,7 +70,7 @@
  @param stars the hotel stars
  @returns a newly initialized object
  */
-- (id)initWithParams:(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(double)latitude :(double)longitude;
+- (id)initWithParams:(NSInteger)id :(NSString *)name :(NSString *)country :(NSString *)city :(NSString *) description :(NSInteger)stars :(double)latitude :(double)longitude;
 
 /**
  Add a room in this hotel

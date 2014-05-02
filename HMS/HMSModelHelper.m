@@ -18,7 +18,7 @@
     {
         NSMutableDictionary *current_hotel = [myTab objectAtIndex:i];
     
-        HMSHotel *hotel = [[HMSHotel alloc] initWithParams: [current_hotel valueForKey:@"name"]:[current_hotel valueForKey:@"country"] : [current_hotel valueForKey:@"city"]: [current_hotel valueForKey:@"description"] : [[current_hotel valueForKey:@"stars"] integerValue] :[[current_hotel valueForKey:@"latitude"] doubleValue] :[[current_hotel valueForKey:@"longitude"] doubleValue]];
+        HMSHotel *hotel = [[HMSHotel alloc] initWithParams: [[current_hotel valueForKey:@"id"] integerValue] : [current_hotel valueForKey:@"name"]:[current_hotel valueForKey:@"country"] : [current_hotel valueForKey:@"city"]: [current_hotel valueForKey:@"description"] : [[current_hotel valueForKey:@"stars"] integerValue] :[[current_hotel valueForKey:@"latitude"] doubleValue] :[[current_hotel valueForKey:@"longitude"] doubleValue]];
     
         NSArray *current_list = current_hotel[@"photos"];
         for (NSInteger j = 0; j < [current_list count]; ++j){ [hotel.photos addObject:current_list[j]]; }

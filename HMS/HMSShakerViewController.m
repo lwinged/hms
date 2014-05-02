@@ -99,7 +99,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     {
 
         
-        if (radialView.progressCounter + 4 > 15)
+        if (radialView.progressCounter + 5 >= 15)
         {
             radialView.progressCounter = 15;
             if (_hotelsLocated)
@@ -124,7 +124,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
                 --radialView.progressCounter;
         }
         else
-            radialView.progressCounter += 4;
+            radialView.progressCounter += 5;
         
 
         CGFloat t = 7.0;
@@ -169,7 +169,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
     
     int x = self.view.center.x - 40;
-    int y = self.view.center.y / 6;
+    int y = self.view.center.y / 3;
     
     CGRect frame = CGRectMake(x, y, 80, 80);
     
