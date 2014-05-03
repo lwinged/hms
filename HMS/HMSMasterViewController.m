@@ -20,8 +20,9 @@
     NSArray *_countryHotels;
     NSArray *_country;
     NSString *_CountrySelected;
-    UIPickerView * picker;
-    NSInteger _lastSelected;
+    SBPickerSelector * picker;
+    NSString *_lastSelected;
+    NSInteger lastIndex;
     HMSAppDelegate *appDelegate;
 }
 @end
@@ -44,14 +45,13 @@
     
     _hotels = appDelegate.sharedHotels;
     
-    if (_lastSelected == NSNotFound)
-    {
-    _lastSelected = 0;
-        NSLog(@"NO");
-    }
     _country = [[NSArray alloc] initWithObjects:@"France", @"Chine", @"Vietnam", nil];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", [_country objectAtIndex:_lastSelected] ];
+    _CountrySelected = @"France";
+    
+    lastIndex = 0;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", [_country objectAtIndex:0] ];
     _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
     
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
@@ -62,50 +62,25 @@
 }
 
 - (IBAction)countryButton:(id)sender {
-    CGFloat width = CGRectGetWidth(self.view.bounds);
+    picker = [SBPickerSelector picker];
     
-    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 288, width, 260)];
+    picker.pickerData = [_country mutableCopy]; //picker content
     picker.delegate = self;
-    picker.dataSource = self;
-    picker.showsSelectionIndicator = YES;
-    picker.backgroundColor = [UIColor colorWithRed:229/255.0f green:229/255.0f blue:229/255.0f alpha:1.0f];
-    picker.layer.cornerRadius = 5;
-    [picker selectRow:_lastSelected inComponent:0 animated:YES];
-    [self.view addSubview:picker];
+    picker.pickerType = SBPickerSelectorTypeText;
+    picker.doneButtonTitle = @"Done";
+    picker.cancelButtonTitle = @"Cancel";
+    CGPoint point = [self.view convertPoint:[sender frame].origin fromView:[sender superview]];
+    CGRect frame = [sender frame];
+    frame.origin = point;
+    [picker.pickerView selectRow:lastIndex inComponent:0 animated:YES];
+    _lastSelected = _CountrySelected;
+    [picker showPickerIpadFromRect:frame inView:self.view];
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    UITapGestureRecognizer *myGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerTapped:)];
-    NSString * title = nil;
+-(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
     
-    for (NSInteger i = 0; i != _country.count; ++i)
-    {
-        if (i == row)
-        {
-            title = [_country objectAtIndex:i];
-            _CountrySelected = title;
-            [pickerView addGestureRecognizer:myGR];
-        }
-    }
-    
-    return title;
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    _lastSelected = row;
-}
-
--(void)pickerTapped:(id)sender
-{
-    
+    _CountrySelected = [_country objectAtIndex:idx];
+    lastIndex = idx;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", _CountrySelected];
     _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
     [_countryButton setTitle:_CountrySelected forState:UIControlStateNormal];
@@ -113,10 +88,35 @@
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
     
     indices = [_objects valueForKey:@"headerTitle"];
-
+    
     [self.tableView reloadData];
-    [picker removeFromSuperview];
-    NSLog(@"%@", _countryHotels);
+}
+
+-(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
+    
+}
+          
+
+-(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel{
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", _lastSelected];
+    _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
+    [_countryButton setTitle:_lastSelected forState:UIControlStateNormal];
+    
+    _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
+    
+    indices = [_objects valueForKey:@"headerTitle"];
+    
+    [self.tableView reloadData];
+    NSLog(@"press cancel");
+}
+
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx{
+    if ([value isMemberOfClass:[NSDate class]]) {
+        [self SBPickerSelector:selector dateSelected:value];
+    }else{
+        [self SBPickerSelector:selector selectedValue:value index:idx];
+    }
 }
 
 - (void)didReceiveMemoryWarning

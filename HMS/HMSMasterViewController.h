@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SBPickerSelector.h>
 
-@interface HMSMasterViewController : UITableViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface HMSMasterViewController : UITableViewController<SBPickerSelectorDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *countryButton;
 
 
