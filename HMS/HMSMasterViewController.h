@@ -13,5 +13,7 @@
 
 - (void) reloadDataTableView:(BOOL)animated;
 
+@property(nonatomic, retain) UIColor *sectionIndexColor;
+
 
 @end

@@ -52,7 +52,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-        
+    //[self.tableView setSeparatorColor:[UIColor grayColor]]; //change color separator
+    //[[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]];
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_detailItem :@"name"]];
     indices = [_objects valueForKey:@"headerTitle"];
 }
@@ -81,9 +82,43 @@
     
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
                            objectAtIndex:indexPath.row];
-    cell.textColor = [UIColor colorWithRed:(139/255.0) green:(108/255.0) blue:(66/255.0) alpha:1.0]; //DARKCOLOR
+    
+    if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
+        tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+    }
     
     return cell;
+}
+
+
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+	for (int i=0; i < indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+    
+	return retInt + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+    
+    NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    if (realRow % 2) {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0];
+    }
+    else {
+        cell.backgroundColor = [UIColor colorWithRed:(253/255.0) green:(253/255.0) blue:(254/255.0) alpha:1.0];
+        cell.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+    }
+    
 }
 
 

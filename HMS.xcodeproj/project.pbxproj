@@ -12,6 +12,7 @@
 		10AAA8011914EAE0005A49CA /* shaker32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AAA7FE1914EAE0005A49CA /* shaker32.png */; };
 		10D39E6A19153C7A00554D4D /* edit32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6819153C7A00554D4D /* edit32.png */; };
 		10D39E6B19153C7A00554D4D /* star32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6919153C7A00554D4D /* star32.png */; };
+		10D39E6D19155E3C00554D4D /* sectionbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6C19155E3C00554D4D /* sectionbg.png */; };
 		17DE8611FF5748B3B91DAC7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9587A17E0DBF40A391D28720 /* libPods.a */; };
 		97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B13EDE1911403300ACC622 /* HMSModelHelper.m */; };
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
@@ -121,6 +122,7 @@
 		10AAA7FE1914EAE0005A49CA /* shaker32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shaker32.png; sourceTree = "<group>"; };
 		10D39E6819153C7A00554D4D /* edit32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32.png; sourceTree = "<group>"; };
 		10D39E6919153C7A00554D4D /* star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star32.png; sourceTree = "<group>"; };
+		10D39E6C19155E3C00554D4D /* sectionbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectionbg.png; sourceTree = "<group>"; };
 		9587A17E0DBF40A391D28720 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B13EDD1911403300ACC622 /* HMSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSModelHelper.h; sourceTree = "<group>"; };
 		97B13EDE1911403300ACC622 /* HMSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSModelHelper.m; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		EE0341D718DC12E400EA4F4D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10D39E6C19155E3C00554D4D /* sectionbg.png */,
 				10D39E6819153C7A00554D4D /* edit32.png */,
 				10D39E6919153C7A00554D4D /* star32.png */,
 				10AAA7FC1914EAE0005A49CA /* heart32.png */,
@@ -742,6 +745,7 @@
 				EEB62F9118F10F9C00FBA33D /* README.mdown in Resources */,
 				EEB62FBB18F1114700FBA33D /* hotel3.jpeg in Resources */,
 				10AAA7FF1914EAE0005A49CA /* heart32.png in Resources */,
+				10D39E6D19155E3C00554D4D /* sectionbg.png in Resources */,
 				10D39E6A19153C7A00554D4D /* edit32.png in Resources */,
 				EEB62FB018F10F9C00FBA33D /* MWPhotoBrowser.bundle in Resources */,
 				EEB62FB918F1114700FBA33D /* hotel1.jpeg in Resources */,

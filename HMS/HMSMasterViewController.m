@@ -36,7 +36,9 @@
     [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Menlo" size:19.0]}];
     [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
+
 }
 
 - (void)viewDidLoad
@@ -79,12 +81,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
+   
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
     objectAtIndex:indexPath.row];
     
+    if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
+        tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+    }
+    
     return cell;
 }
+
 
 - (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
 {
