@@ -43,6 +43,7 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]; //background color
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
 }
 
 - (void)didReceiveMemoryWarning

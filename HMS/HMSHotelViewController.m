@@ -161,7 +161,6 @@
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     MWPhoto * photo;
     
-
     //photos de l'hotel
     for (NSInteger i = 0; i < [[self.detailItem photos] count]; ++i)
     {

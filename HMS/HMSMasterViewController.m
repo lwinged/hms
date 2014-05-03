@@ -30,12 +30,11 @@
     
     [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]];
-    
-    //[[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                          // [UIFont fontWithName:@"Cochin" size:21.0], UITextAttributeFont, nil]];
    
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
+    
     [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Menlo" size:19.0]}];
     [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]];
     
 }

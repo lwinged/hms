@@ -38,22 +38,22 @@
     [super viewDidLoad];
     
     // Initialize the UIButton
-    UIImage *btn = [UIImage imageNamed:@"edit32.png"];
-    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [aButton setImage:btn forState:UIControlStateNormal];
-    aButton.frame = CGRectMake(0.0, 0.0, btn.size.width, btn.size.height);
+    UIImage *editImg = [UIImage imageNamed:@"edit32.png"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:editImg forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0.0, 0.0, editImg.size.width, editImg.size.height);
     
     // Initialize the UIBarButtonItem
-    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aButton];
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     
-    // Set the Target and Action for aButton
-    [aButton addTarget:self action:@selector(editButtonItem) forControlEvents:UIControlEventTouchUpInside];
+    // Set the Target and Action for btn
+    [btn addTarget:self action:@selector(editButtonItem) forControlEvents:UIControlEventTouchUpInside];
     
     // Then you can add the aBarButtonItem to the UINavigationBar
     self.navigationItem.rightBarButtonItem = aBarButtonItem;
     
     // Release buttonImage
-    //[btn release];
+    //[editImg release];
     
     appDelegate = [[UIApplication sharedApplication] delegate];
     

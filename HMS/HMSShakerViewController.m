@@ -53,10 +53,10 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     
     
     // Initialize the UIButton
-    UIImage *btn = [UIImage imageNamed:@"shaker32.png"];
+    UIImage *shakerImg = [UIImage imageNamed:@"shaker32.png"];
     UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [aButton setImage:btn forState:UIControlStateNormal];
-    aButton.frame = CGRectMake(0.0, 0.0, btn.size.width, btn.size.height);
+    [aButton setImage:shakerImg forState:UIControlStateNormal];
+    aButton.frame = CGRectMake(0.0, 0.0, shakerImg.size.width, shakerImg.size.height);
     
     // Initialize the UIBarButtonItem
     UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aButton];
@@ -68,7 +68,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     self.navigationItem.rightBarButtonItem = aBarButtonItem;
     
     // Release buttonImage
-   //[btn release];
+   //[shakerImg release];
     
 
     appDelegate = [[UIApplication sharedApplication] delegate];
