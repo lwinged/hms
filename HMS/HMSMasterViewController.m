@@ -248,14 +248,17 @@
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:[_hotels valueForKey:@"country"]];
     
     _country = [orderedSet.array sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
     
     _CountrySelected = appDelegate.searchHotel;
+
     
     lastIndex = [_country indexOfObject:appDelegate.searchHotel];
     
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", appDelegate.searchHotel];
     _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
+    
     
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
     
