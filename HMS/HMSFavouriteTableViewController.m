@@ -47,8 +47,9 @@
     UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     
     // Set the Target and Action for btn
-    [btn addTarget:self action:@selector(editButtonItem) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(editButtonTouched) forControlEvents:UIControlEventTouchUpInside];
     
+
     // Then you can add the aBarButtonItem to the UINavigationBar
     self.navigationItem.rightBarButtonItem = aBarButtonItem;
     
@@ -66,6 +67,12 @@
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = @"Favourite";
 
+}
+
+- (void) editButtonTouched
+{
+    // edit/done button has been touched
+        [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
