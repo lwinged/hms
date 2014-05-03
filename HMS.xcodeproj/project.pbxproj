@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		109BC2D819140F5C003097AA /* ic_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 109BC2D419140F5C003097AA /* ic_phone.png */; };
-		109BC2D919140F5C003097AA /* cellstylebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 109BC2D519140F5C003097AA /* cellstylebg.png */; };
-		109BC2DA19140F5C003097AA /* ic_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 109BC2D619140F5C003097AA /* ic_heart.png */; };
-		109BC2DB19140F5C003097AA /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 109BC2D719140F5C003097AA /* ic_search.png */; };
+		10AAA7FF1914EAE0005A49CA /* heart32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AAA7FC1914EAE0005A49CA /* heart32.png */; };
+		10AAA8001914EAE0005A49CA /* loupe32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AAA7FD1914EAE0005A49CA /* loupe32.png */; };
+		10AAA8011914EAE0005A49CA /* shaker32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AAA7FE1914EAE0005A49CA /* shaker32.png */; };
 		17DE8611FF5748B3B91DAC7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9587A17E0DBF40A391D28720 /* libPods.a */; };
 		97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B13EDE1911403300ACC622 /* HMSModelHelper.m */; };
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
@@ -112,10 +111,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		109BC2D419140F5C003097AA /* ic_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone.png; sourceTree = "<group>"; };
-		109BC2D519140F5C003097AA /* cellstylebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellstylebg.png; sourceTree = "<group>"; };
-		109BC2D619140F5C003097AA /* ic_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_heart.png; sourceTree = "<group>"; };
-		109BC2D719140F5C003097AA /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
+		10AAA7F91914EA6E005A49CA /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		10AAA7FA1914EA7C005A49CA /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		10AAA7FB1914EA8B005A49CA /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		10AAA7FC1914EAE0005A49CA /* heart32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart32.png; sourceTree = "<group>"; };
+		10AAA7FD1914EAE0005A49CA /* loupe32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loupe32.png; sourceTree = "<group>"; };
+		10AAA7FE1914EAE0005A49CA /* shaker32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shaker32.png; sourceTree = "<group>"; };
 		9587A17E0DBF40A391D28720 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B13EDD1911403300ACC622 /* HMSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSModelHelper.h; sourceTree = "<group>"; };
 		97B13EDE1911403300ACC622 /* HMSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSModelHelper.m; sourceTree = "<group>"; };
@@ -323,10 +324,9 @@
 		EE0341D718DC12E400EA4F4D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				109BC2D419140F5C003097AA /* ic_phone.png */,
-				109BC2D519140F5C003097AA /* cellstylebg.png */,
-				109BC2D619140F5C003097AA /* ic_heart.png */,
-				109BC2D719140F5C003097AA /* ic_search.png */,
+				10AAA7FC1914EAE0005A49CA /* heart32.png */,
+				10AAA7FD1914EAE0005A49CA /* loupe32.png */,
+				10AAA7FE1914EAE0005A49CA /* shaker32.png */,
 				EE6D78C818EFD9E1006AC569 /* HMSMasterViewController.h */,
 				EE6D78C918EFD9E1006AC569 /* HMSMasterViewController.m */,
 				EE6D78CA18EFD9E1006AC569 /* HMSDetailViewController.h */,
@@ -404,6 +404,9 @@
 		EE6DA3E518D9907300970A22 = {
 			isa = PBXGroup;
 			children = (
+				10AAA7FB1914EA8B005A49CA /* Icon-Small@2x.png */,
+				10AAA7FA1914EA7C005A49CA /* Icon-40@2x.png */,
+				10AAA7F91914EA6E005A49CA /* Icon-60@2x.png */,
 				EE6DA3F718D9907300970A22 /* HMS */,
 				EE6DA41918D9907300970A22 /* HMSTests */,
 				EE6DA3F018D9907300970A22 /* Frameworks */,
@@ -726,19 +729,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB62FBD18F1114700FBA33D /* hotel5.jpeg in Resources */,
-				109BC2DB19140F5C003097AA /* ic_search.png in Resources */,
 				EEB62FBA18F1114700FBA33D /* hotel2.jpeg in Resources */,
-				109BC2D919140F5C003097AA /* cellstylebg.png in Resources */,
 				EEB62FBC18F1114700FBA33D /* hotel4.jpeg in Resources */,
 				EEB62FA018F10F9C00FBA33D /* README.md in Resources */,
 				EE6DA40D18D9907300970A22 /* Images.xcassets in Resources */,
 				EEB62F9118F10F9C00FBA33D /* README.mdown in Resources */,
-				109BC2D819140F5C003097AA /* ic_phone.png in Resources */,
 				EEB62FBB18F1114700FBA33D /* hotel3.jpeg in Resources */,
+				10AAA7FF1914EAE0005A49CA /* heart32.png in Resources */,
 				EEB62FB018F10F9C00FBA33D /* MWPhotoBrowser.bundle in Resources */,
 				EEB62FB918F1114700FBA33D /* hotel1.jpeg in Resources */,
+				10AAA8001914EAE0005A49CA /* loupe32.png in Resources */,
 				EE6DA3FC18D9907300970A22 /* InfoPlist.strings in Resources */,
-				109BC2DA19140F5C003097AA /* ic_heart.png in Resources */,
+				10AAA8011914EAE0005A49CA /* shaker32.png in Resources */,
 				EE6DA40518D9907300970A22 /* Main.storyboard in Resources */,
 				EEB62F9F18F10F9C00FBA33D /* LICENSE in Resources */,
 			);
@@ -979,7 +981,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A12756DFBC1042BF8264EFEC /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
@@ -995,7 +997,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A12756DFBC1042BF8264EFEC /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
