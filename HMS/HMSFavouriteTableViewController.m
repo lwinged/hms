@@ -37,6 +37,24 @@
 {
     [super viewDidLoad];
     
+    // Initialize the UIButton
+    UIImage *btn = [UIImage imageNamed:@"edit32.png"];
+    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [aButton setImage:btn forState:UIControlStateNormal];
+    aButton.frame = CGRectMake(0.0, 0.0, btn.size.width, btn.size.height);
+    
+    // Initialize the UIBarButtonItem
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aButton];
+    
+    // Set the Target and Action for aButton
+    [aButton addTarget:self action:@selector(editButtonItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Then you can add the aBarButtonItem to the UINavigationBar
+    self.navigationItem.rightBarButtonItem = aBarButtonItem;
+    
+    // Release buttonImage
+    //[btn release];
+    
     appDelegate = [[UIApplication sharedApplication] delegate];
     
     _hotels = appDelegate.favoritesHotels;
@@ -44,7 +62,8 @@
     _objects = [[HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_hotels :@"name"]] mutableCopy];
     indices = [_objects valueForKey:@"headerTitle"];
 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = @"Favourite";
 
 }
