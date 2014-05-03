@@ -62,7 +62,9 @@
 }
 
 - (IBAction)countryButton:(id)sender {
-    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 288, 310, 260)];
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    
+    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 288, width, 260)];
     picker.delegate = self;
     picker.dataSource = self;
     picker.showsSelectionIndicator = YES;

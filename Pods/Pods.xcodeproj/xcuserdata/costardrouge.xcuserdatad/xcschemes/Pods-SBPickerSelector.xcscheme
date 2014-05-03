@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B9561C3CDBDC4E8BB5E6EE35"
-               BuildableName = "libPods.a"
-               BlueprintName = "Pods"
+               BlueprintIdentifier = "A02FF1DB853E463EBCDA3129"
+               BuildableName = "libPods-SBPickerSelector.a"
+               BlueprintName = "Pods-SBPickerSelector"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

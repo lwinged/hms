@@ -1,13 +1,12 @@
 PODS:
-  - JSMessagesViewController (4.0.4):
-    - JSQSystemSoundPlayer
-  - JSQSystemSoundPlayer (1.4.0)
+  - SBPickerSelector (1.0.1):
+    - SBPickerSelector/Core
+  - SBPickerSelector/Core (1.0.1)
 
 DEPENDENCIES:
-  - JSMessagesViewController
+  - SBPickerSelector (~> 1.0.1)
 
 SPEC CHECKSUMS:
-  JSMessagesViewController: 6b59dec2b679ee6a8c6d9c9f1d5d9748abf4c05c
-  JSQSystemSoundPlayer: 28ccd01a92a0cebc6de6361e8499011b4cb6dab7
+  SBPickerSelector: db2ab63a445d1a881ccd00e32d4ad6217def472f
 
 COCOAPODS: 0.32.1

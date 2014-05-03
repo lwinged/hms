@@ -6,15 +6,15 @@
 // project.
 
 
-// JSMessagesViewController
-#define COCOAPODS_POD_AVAILABLE_JSMessagesViewController
-#define COCOAPODS_VERSION_MAJOR_JSMessagesViewController 4
-#define COCOAPODS_VERSION_MINOR_JSMessagesViewController 0
-#define COCOAPODS_VERSION_PATCH_JSMessagesViewController 4
+// SBPickerSelector
+#define COCOAPODS_POD_AVAILABLE_SBPickerSelector
+#define COCOAPODS_VERSION_MAJOR_SBPickerSelector 1
+#define COCOAPODS_VERSION_MINOR_SBPickerSelector 0
+#define COCOAPODS_VERSION_PATCH_SBPickerSelector 1
 
-// JSQSystemSoundPlayer
-#define COCOAPODS_POD_AVAILABLE_JSQSystemSoundPlayer
-#define COCOAPODS_VERSION_MAJOR_JSQSystemSoundPlayer 1
-#define COCOAPODS_VERSION_MINOR_JSQSystemSoundPlayer 4
-#define COCOAPODS_VERSION_PATCH_JSQSystemSoundPlayer 0
+// SBPickerSelector/Core
+#define COCOAPODS_POD_AVAILABLE_SBPickerSelector_Core
+#define COCOAPODS_VERSION_MAJOR_SBPickerSelector_Core 1
+#define COCOAPODS_VERSION_MINOR_SBPickerSelector_Core 0
+#define COCOAPODS_VERSION_PATCH_SBPickerSelector_Core 1
 

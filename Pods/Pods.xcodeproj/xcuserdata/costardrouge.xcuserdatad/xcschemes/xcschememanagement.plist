@@ -4,50 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>Pods-SBPickerSelector.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Pods-JSMessagesViewController.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>Pods-JSQSystemSoundPlayer.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>254FC50CC47F4D049182BF2C</key>
+		<key>A02FF1DB853E463EBCDA3129</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48978D7B18904E97B2C3FC6B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ACDCEA5E5EC74E1D8A45823B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E5CC1D24F968471390611AC2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F94E4BAFA20145F0A544DAC6</key>
+		<key>B9561C3CDBDC4E8BB5E6EE35</key>
 		<dict>
 			<key>primary</key>
 			<true/>
