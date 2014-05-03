@@ -93,6 +93,7 @@ install_resource "JSMessagesViewController/JSMessagesViewController/Resources/Im
 install_resource "JSMessagesViewController/JSMessagesViewController/Resources/Images/input-bar-classic"
 install_resource "JSMessagesViewController/JSMessagesViewController/Resources/Images/input-bar-flat"
 install_resource "JSMessagesViewController/JSMessagesViewController/Resources/Sounds"
+install_resource "SBPickerSelector/SBPickerSelector/Resources/SBPickerSelector.xib"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then

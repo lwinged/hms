@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SBPickerSelector.h>
 
-@interface HMSMasterViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
-
+@interface HMSMasterViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, SBPickerSelectorDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *countryButton;
 
 - (void) reloadDataTableView:(BOOL)animated;
 

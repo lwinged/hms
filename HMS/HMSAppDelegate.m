@@ -59,8 +59,10 @@
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
     NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
+    NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
+    
     if ([fileManager fileExistsAtPath:searchPath] == TRUE)
         _sharedHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:searchPath];
     
@@ -68,7 +70,13 @@
         _favoritesHotels = [[NSMutableArray alloc] init];
     else
         _favoritesHotels = [NSKeyedUnarchiver unarchiveObjectWithFile:favoritesPath];
+    
+    if ([fileManager fileExistsAtPath:currentPath] == FALSE)
+        _searchHotel = @"France";
+    else
+        _searchHotel = [NSKeyedUnarchiver unarchiveObjectWithFile:currentPath];
  
+    
     return YES;
 
 }
@@ -83,12 +91,13 @@
         NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
         NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
+        NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
         
         [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
         [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
-        _saved = NO;
-        NSLog(@"saved");
+        [NSKeyedArchiver archiveRootObject:_searchHotel toFile:currentPath];
 
+        _saved = NO;
     }
 
 
@@ -106,9 +115,13 @@
         NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *favoritesPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"favorites.plist"];
         NSString *searchPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"search.plist"];
+        NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
+
         
         [NSKeyedArchiver archiveRootObject:_favoritesHotels toFile:favoritesPath];
         [NSKeyedArchiver archiveRootObject:_sharedHotels toFile:searchPath];
+        [NSKeyedArchiver archiveRootObject:_searchHotel toFile:currentPath];
+
         _saved = NO;
     }
         NSLog(@"background");
