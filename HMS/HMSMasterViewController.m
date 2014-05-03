@@ -45,13 +45,13 @@
     
     _hotels = appDelegate.sharedHotels;
     
-    _country = [[NSArray alloc] initWithObjects:@"France", @"Chine", @"Vietnam", nil];
+    _country = [[NSArray alloc] initWithObjects:@"France", @"US", @"Chine", @"Vietnam", nil];
     
     _CountrySelected = @"France";
     
     lastIndex = 0;
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", [_country objectAtIndex:0] ];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", appDelegate.searchHotel];
     _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
     
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
@@ -88,6 +88,7 @@
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_countryHotels :@"city"]];
     
     indices = [_objects valueForKey:@"headerTitle"];
+    appDelegate.searchHotel = _CountrySelected;
     
     [self.tableView reloadData];
 }

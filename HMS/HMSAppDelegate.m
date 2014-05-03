@@ -49,6 +49,7 @@
    
     _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, nil];
     _favoritesHotels = [[NSMutableArray alloc] init];
+    _searchHotel = @"France";
 
     //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];
     //    id obj = [NSKeyedUnarchiver unarchiveObjectWithFile:@"favorites"];

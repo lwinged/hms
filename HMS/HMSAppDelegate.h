@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) NSArray * sharedHotels;
 @property (strong, nonatomic) NSMutableArray * favoritesHotels;
+@property (strong, nonatomic) NSString *searchHotel;
 
 @end
