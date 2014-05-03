@@ -51,6 +51,8 @@
     
     lastIndex = 0;
     
+    [_countryButton setTitle:appDelegate.searchHotel forState:UIControlStateNormal];
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"country = %@", appDelegate.searchHotel];
     _countryHotels = [_hotels filteredArrayUsingPredicate:predicate];
     
