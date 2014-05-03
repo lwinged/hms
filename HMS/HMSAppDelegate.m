@@ -49,8 +49,19 @@
    
     _sharedHotels = [[NSArray alloc] initWithObjects:hotel, hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, nil];
     _favoritesHotels = [[NSMutableArray alloc] init];
-    _searchHotel = @"France";
 
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:currentPath] == FALSE){
+            _searchHotel = @"France";
+    }
+    else {
+        _searchHotel = [NSKeyedUnarchiver unarchiveObjectWithFile:currentPath];
+    }
+    
+    
     //[NSKeyedArchiver archiveRootObject:self.item toFile:@"favorites"];
     //    id obj = [NSKeyedUnarchiver unarchiveObjectWithFile:@"favorites"];
     //    NSLog(@"%@", obj);
@@ -63,7 +74,10 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
     
+    [NSKeyedArchiver archiveRootObject:_searchHotel toFile:currentPath];
     NSLog(@"all app pause kill");
 }
 
@@ -71,7 +85,10 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *currentPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"current.plist"];
     
+    [NSKeyedArchiver archiveRootObject:_searchHotel toFile:currentPath];
         NSLog(@"background");
 }
 
