@@ -88,16 +88,22 @@
 {
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
+    NSString *ah = @"stars";
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                                  reuseIdentifier:@"Cell2"];
     
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
-    NSLog(@"CELLULE: [%@]", cell.textLabel.text);
+    NSLog(@"CELLULE: [%@] hehhe", cell.textLabel.text);
     
     for (NSInteger i=0; i < [_objstars count]; ++i) {
         cell.detailTextLabel.text = [_objstars[i] stringValue];
+        cell.detailTextLabel.text = @"%@ %@", ah, [_objstars[i] stringValue];
+        
+        //UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        //imgView.image = [UIImage imageNamed:@"star32.png"];
+        //cell.imageView.image = imgView.image;
     }
-                               
+    
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
         tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
     }

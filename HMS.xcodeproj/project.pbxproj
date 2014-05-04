@@ -13,6 +13,7 @@
 		10D39E6A19153C7A00554D4D /* edit32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6819153C7A00554D4D /* edit32.png */; };
 		10D39E6B19153C7A00554D4D /* star32.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6919153C7A00554D4D /* star32.png */; };
 		10D39E6D19155E3C00554D4D /* sectionbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D39E6C19155E3C00554D4D /* sectionbg.png */; };
+		10D39E711916E47D00554D4D /* HMSColorElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D39E701916E47D00554D4D /* HMSColorElement.m */; };
 		17DE8611FF5748B3B91DAC7D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9587A17E0DBF40A391D28720 /* libPods.a */; };
 		97B13EDF1911403300ACC622 /* HMSModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B13EDE1911403300ACC622 /* HMSModelHelper.m */; };
 		EE0341E118DC595F00EA4F4D /* HMSHelperIndexedList.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0341E018DC595F00EA4F4D /* HMSHelperIndexedList.m */; };
@@ -123,6 +124,8 @@
 		10D39E6819153C7A00554D4D /* edit32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit32.png; sourceTree = "<group>"; };
 		10D39E6919153C7A00554D4D /* star32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star32.png; sourceTree = "<group>"; };
 		10D39E6C19155E3C00554D4D /* sectionbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectionbg.png; sourceTree = "<group>"; };
+		10D39E6F1916E47D00554D4D /* HMSColorElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSColorElement.h; sourceTree = "<group>"; };
+		10D39E701916E47D00554D4D /* HMSColorElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSColorElement.m; sourceTree = "<group>"; };
 		9587A17E0DBF40A391D28720 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B13EDD1911403300ACC622 /* HMSModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSModelHelper.h; sourceTree = "<group>"; };
 		97B13EDE1911403300ACC622 /* HMSModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSModelHelper.m; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				EE6DA40318D9907300970A22 /* Main.storyboard */,
 				EE6DA40C18D9907300970A22 /* Images.xcassets */,
 				EE6DA3F818D9907300970A22 /* Supporting Files */,
+				10D39E6F1916E47D00554D4D /* HMSColorElement.h */,
+				10D39E701916E47D00554D4D /* HMSColorElement.m */,
 			);
 			path = HMS;
 			sourceTree = "<group>";
@@ -811,6 +816,7 @@
 				EEB62FA718F10F9C00FBA33D /* SDWebImageDownloader.m in Sources */,
 				EE6D4A4A1903C770005B8EBE /* JPSThumnail.m in Sources */,
 				EEB62FAE18F10F9C00FBA33D /* UIImage+WebP.m in Sources */,
+				10D39E711916E47D00554D4D /* HMSColorElement.m in Sources */,
 				EE6D78C718EFD929006AC569 /* UIViewController+JASidePanel.m in Sources */,
 				EEB62F8718F10F9C00FBA33D /* MWCaptionView.m in Sources */,
 				EEB62F8818F10F9C00FBA33D /* MWGridCell.m in Sources */,
