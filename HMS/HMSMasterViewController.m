@@ -114,11 +114,11 @@
     NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
     if (realRow % 2) {
         cell.backgroundColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]; //lightColor
-        cell.textColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
     }
     else {
         cell.backgroundColor = [UIColor whiteColor];
-        cell.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]; //darkColor
+        cell.textLabel.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]; //darkColor
         
     }
     

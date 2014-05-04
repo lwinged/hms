@@ -79,7 +79,7 @@
     cell.imageView.image = [UIImage imageNamed:[_thumbnails objectAtIndex:indexPath.row]];
     cell.textLabel.text = _objects[indexPath.row];
     cell.backgroundColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
-    cell.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }
