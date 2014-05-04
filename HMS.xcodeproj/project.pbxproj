@@ -330,12 +330,6 @@
 		EE0341D718DC12E400EA4F4D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10D39E6C19155E3C00554D4D /* sectionbg.png */,
-				10D39E6819153C7A00554D4D /* edit32.png */,
-				10D39E6919153C7A00554D4D /* star32.png */,
-				10AAA7FC1914EAE0005A49CA /* heart32.png */,
-				10AAA7FD1914EAE0005A49CA /* loupe32.png */,
-				10AAA7FE1914EAE0005A49CA /* shaker32.png */,
 				EE6D78C818EFD9E1006AC569 /* HMSMasterViewController.h */,
 				EE6D78C918EFD9E1006AC569 /* HMSMasterViewController.m */,
 				EE6D78CA18EFD9E1006AC569 /* HMSDetailViewController.h */,
@@ -649,6 +643,12 @@
 		EEB62FB318F1110E00FBA33D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				10D39E6C19155E3C00554D4D /* sectionbg.png */,
+				10D39E6819153C7A00554D4D /* edit32.png */,
+				10D39E6919153C7A00554D4D /* star32.png */,
+				10AAA7FC1914EAE0005A49CA /* heart32.png */,
+				10AAA7FD1914EAE0005A49CA /* loupe32.png */,
+				10AAA7FE1914EAE0005A49CA /* shaker32.png */,
 				EEB62FB418F1114700FBA33D /* hotel1.jpeg */,
 				EEB62FB518F1114700FBA33D /* hotel2.jpeg */,
 				EEB62FB618F1114700FBA33D /* hotel3.jpeg */,
