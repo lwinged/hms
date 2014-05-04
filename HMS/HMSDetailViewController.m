@@ -7,14 +7,12 @@
 //
 
 #import "HMSDetailViewController.h"
-#import "HMSHelperIndexedList.h"
-#import "HMSHotel.h"
-#import "HMSTabBarController.h"
 
 
 @interface HMSDetailViewController ()
 {
     NSArray * _objects;
+    NSMutableArray * _objstars;
     NSArray *indices;
 }
 
@@ -52,9 +50,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    //[self.tableView setSeparatorColor:[UIColor grayColor]]; //change color separator
-    //[[UITableViewHeaderFooterView appearance] setTintColor:[UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]];
+
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_detailItem :@"name"]];
+
+    
+    _objstars = [[NSMutableArray alloc] init];
+
+    for (NSInteger i=0; i < [_detailItem count]; ++i) {
+        NSMutableDictionary *dico_tmp = [_detailItem objectAtIndex:i];
+        NSInteger listStars = [[dico_tmp valueForKey:@"stars"] integerValue];
+        [_objstars addObject:[NSNumber numberWithInt:listStars]];
+    }
+  
     indices = [_objects valueForKey:@"headerTitle"];
 }
 
@@ -76,13 +83,21 @@
     return [[[_objects objectAtIndex:section] objectForKey:@"rowValues"] count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
-    cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
-                           objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                                 reuseIdentifier:@"Cell2"];
     
+    cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
+    NSLog(@"CELLULE: [%@]", cell.textLabel.text);
+    
+    for (NSInteger i=0; i < [_objstars count]; ++i) {
+        cell.detailTextLabel.text = [_objstars[i] stringValue];
+    }
+                               
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
         tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
     }

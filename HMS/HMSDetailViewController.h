@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HMSHelperIndexedList.h"
+#import "HMSHotel.h"
+#import "HMSTabBarController.h"
+#import "HMSAppDelegate.h"
 
 @interface HMSDetailViewController : UITableViewController
 
