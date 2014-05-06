@@ -10,6 +10,7 @@
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 #import "HMSShakerViewController.h"
+#import "HMSColorElement.h"
 
 @interface HMSMenuPanelTableViewController ()
 {
@@ -40,7 +41,7 @@
     
     // under status bar
     self.tableView.contentInset = UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f);
-    self.tableView.backgroundColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]; //background color
+    self.tableView.backgroundColor = [HMSColorElement hms_lightRedColor]; //background color
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
@@ -78,7 +79,7 @@
     
     cell.imageView.image = [UIImage imageNamed:[_thumbnails objectAtIndex:indexPath.row]];
     cell.textLabel.text = _objects[indexPath.row];
-    cell.backgroundColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+    cell.backgroundColor = [HMSColorElement hms_darkRedColor];
     cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;

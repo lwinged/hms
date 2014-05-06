@@ -13,6 +13,7 @@
 #import "JPSThumbnail.h"
 #import "JPSThumbnailAnnotation.h"
 #import "HMSAppDelegate.h"
+#import "HMSColorElement.h"
 
 #import "HMSTabBarController.h"
 #import "HMSHotel.h"
@@ -48,9 +49,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
 
     //enleve la transparence car il faut deplacer le contenu avec le edge = none bar noire
     self.title = @"Shaker";
-   // self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Shake" style:UIBarButtonItemStylePlain target:self action:@selector(enableShaker)];
-;
-    
+
     
     // Initialize the UIButton
     UIImage *shakerImg = [UIImage imageNamed:@"shaker32.png"];
@@ -198,7 +197,7 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     radialView.progressTotal = 15;
     radialView.progressCounter = 0;
     radialView.clockwise = YES;
-    radialView.theme.completedColor = [UIColor colorWithRed:109/255.0 green:7/255.0 blue:26/255.0 alpha:1.0];
+    radialView.theme.completedColor = [HMSColorElement hms_darkRedColor];
     radialView.theme.incompletedColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1.0];
     radialView.theme.thickness = 30;
     radialView.theme.sliceDividerHidden = NO;

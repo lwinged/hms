@@ -7,6 +7,8 @@
 //
 
 #import "HMSDetailViewController.h"
+#import "HMSColorElement.h"
+
 
 
 @interface HMSDetailViewController ()
@@ -113,7 +115,7 @@
     }
     
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
-        tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+        tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];
     }
     
     return cell;

@@ -8,6 +8,7 @@
 
 #import "HMSCommentViewController.h"
 #import "JSMessage.h"
+#import "HMSColorElement.h"
 
 #define kSubtitleJobs @"Jobs"
 #define kSubtitleWoz @"Steve Wozniak"
@@ -98,7 +99,7 @@
     }
     
     return [JSBubbleImageViewFactory bubbleImageViewForType:type
-                                                          color:[UIColor colorWithRed:(239/255.0) green:(239/255.0) blue:(239/255.0) alpha:1.0]]; //gray
+                                                          color:[UIColor js_bubbleLightGrayColor]];
 }
 
 - (JSMessageInputViewStyle)inputViewStyle

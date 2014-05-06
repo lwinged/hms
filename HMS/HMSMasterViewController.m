@@ -12,6 +12,8 @@
 #import "HMSHotel.h"
 #import "HMSAppDelegate.h"
 
+#import "HMSColorElement.h"
+
 @interface HMSMasterViewController () {
     NSArray * _objects;
     NSArray *indices;
@@ -29,13 +31,14 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
-    [[UITabBar appearance] setBarTintColor: [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]];
+    [[UITabBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
    
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
     
     [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Menlo" size:19.0]}];
-    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
+    
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
 
@@ -86,7 +89,7 @@
     objectAtIndex:indexPath.row];
     
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
-        tableView.sectionIndexColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+        tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];
     }
     
     return cell;
@@ -113,12 +116,12 @@
     
     NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
     if (realRow % 2) {
-        cell.backgroundColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0]; //lightColor
+        cell.backgroundColor = [HMSColorElement hms_lightRedColor]; //lightColor
         cell.textLabel.textColor = [UIColor whiteColor];
     }
     else {
         cell.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0]; //darkColor
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor]; //darkColor
         
     }
     

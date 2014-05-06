@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HMSColorElement : UIColor
+@interface HMSColorElement : NSObject 
 
 + (UIColor *) hms_darkRedColor;
 + (UIColor *) hms_lightRedColor;
