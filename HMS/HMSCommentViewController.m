@@ -92,7 +92,12 @@
 - (UIImageView *)bubbleImageViewWithType:(JSBubbleMessageType)type
                        forRowAtIndexPath:(NSIndexPath *)indexPath //COLOR BUBBLE
 {
+    if (indexPath.row % 2) {
         return [JSBubbleImageViewFactory bubbleImageViewForType:type
+                                                          color:[UIColor js_bubbleBlueColor]];
+    }
+    
+    return [JSBubbleImageViewFactory bubbleImageViewForType:type
                                                           color:[UIColor colorWithRed:(239/255.0) green:(239/255.0) blue:(239/255.0) alpha:1.0]]; //gray
 }
 
