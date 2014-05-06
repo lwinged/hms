@@ -88,41 +88,28 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
-    //UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                                 //reuseIdentifier:@"Cell2"];
-    
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
     
     
     for (NSInteger i=0; i < [_objstars count]; ++i) {
-        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         
         if ([[_objstars[i] stringValue] isEqualToString:@"1"]) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             imgView.image = [UIImage imageNamed:@"1.png"];
-            cell.imageView.image = imgView.image;
         }
         else if ([[_objstars[i] stringValue] isEqualToString:@"2"]) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             imgView.image = [UIImage imageNamed:@"2.png"];
-            cell.imageView.image = imgView.image;
         }
         else if ([[_objstars[i] stringValue] isEqualToString:@"3"]) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             imgView.image = [UIImage imageNamed:@"3.png"];
-            cell.imageView.image = imgView.image;
         }
         else if ([[_objstars[i] stringValue] isEqualToString:@"4"]) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             imgView.image = [UIImage imageNamed:@"4.png"];
-            cell.imageView.image = imgView.image;
         }
         else if ([[_objstars[i] stringValue] isEqualToString:@"5"]) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             imgView.image = [UIImage imageNamed:@"5.png"];
-            cell.imageView.image = imgView.image;
         }
-        
+        cell.imageView.image = imgView.image;
     }
     
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
