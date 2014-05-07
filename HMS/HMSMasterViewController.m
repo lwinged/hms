@@ -40,16 +40,12 @@
     
     [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
-   
+    
     [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
     
     [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Menlo" size:19.0]}];
     [[UINavigationBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
-    
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
-    
-
 }
 
 - (void)viewDidLoad
@@ -58,6 +54,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"Search";
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
     appDelegate = [[UIApplication sharedApplication] delegate];
     

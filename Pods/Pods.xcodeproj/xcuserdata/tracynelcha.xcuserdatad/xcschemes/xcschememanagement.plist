@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Pods-SBPickerSelector.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,12 +37,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2EC41B1B55E648368DA0984F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A728B09F46246F69DF42F9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4CB080731CC84F4895A5A81B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>56F2623079C0473BAA796EEC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94D8A0F622F046279A876E53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>ABB7EAE0F66A4C069966970F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6C50299077647F59CB27E9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

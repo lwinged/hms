@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
+    
     // Initialize the UIButton
     UIImage *editImg = [UIImage imageNamed:@"edit32.png"];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -129,7 +131,7 @@
     NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
     if (realRow % 2) {
         cell.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.textColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0];
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor];
     }
     else {
         cell.backgroundColor = [HMSColorElement hms_grayColor];

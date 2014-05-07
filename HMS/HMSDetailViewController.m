@@ -53,6 +53,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
+    
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_detailItem :@"name"]];
 
     
@@ -95,22 +97,28 @@
     
     for (NSInteger i=0; i < [_objstars count]; ++i) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        
-        if ([[_objstars[i] stringValue] isEqualToString:@"1"]) {
-            imgView.image = [UIImage imageNamed:@"1.png"];
+
+        switch ( [_objstars[i] integerValue]) {
+            case 1:
+                imgView.image = [UIImage imageNamed:@"1.png"];
+                break;
+            case 2:
+                imgView.image = [UIImage imageNamed:@"2.png"];
+            break;
+            case 3:
+                imgView.image = [UIImage imageNamed:@"3.png"];
+            break;
+            case 4:
+                imgView.image = [UIImage imageNamed:@"4.png"];
+            break;
+            case 5:
+                imgView.image = [UIImage imageNamed:@"5.png"];
+            break;
+
+            default:
+                break;
         }
-        else if ([[_objstars[i] stringValue] isEqualToString:@"2"]) {
-            imgView.image = [UIImage imageNamed:@"2.png"];
-        }
-        else if ([[_objstars[i] stringValue] isEqualToString:@"3"]) {
-            imgView.image = [UIImage imageNamed:@"3.png"];
-        }
-        else if ([[_objstars[i] stringValue] isEqualToString:@"4"]) {
-            imgView.image = [UIImage imageNamed:@"4.png"];
-        }
-        else if ([[_objstars[i] stringValue] isEqualToString:@"5"]) {
-            imgView.image = [UIImage imageNamed:@"5.png"];
-        }
+                 
         cell.imageView.image = imgView.image;
     }
     
@@ -143,11 +151,11 @@
     NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
     if (realRow % 2) {
         cell.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.textColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0];
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor];
     }
     else {
-        cell.backgroundColor = [UIColor colorWithRed:(253/255.0) green:(253/255.0) blue:(254/255.0) alpha:1.0];
-        cell.textLabel.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+        cell.backgroundColor = [HMSColorElement hms_grayColor];
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor];
     }
     
 }

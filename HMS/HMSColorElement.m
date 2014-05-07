@@ -18,7 +18,7 @@
 
 + (UIColor *) hms_grayColor
 {
-    return [UIColor colorWithRed:(253/255.0) green:(253/255.0) blue:(254/255.0) alpha:1.0];
+    return [UIColor colorWithRed:(250/255.0) green:(250/255.0) blue:(253/255.0) alpha:1.0];
 }
 
 + (UIColor *) hms_lightRedColor
