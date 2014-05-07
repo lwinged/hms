@@ -102,7 +102,7 @@
                              action:@selector(sendPressed:)
                    forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:inputView];
+    //[self.view addSubview:inputView];
     _messageInputView = inputView;
 }
 
@@ -156,7 +156,7 @@
 
 - (void)dealloc
 {
-    _delegate = nil;
+   _delegate = nil;
     _dataSource = nil;
     _tableView.delegate = nil;
     _tableView.dataSource = nil;

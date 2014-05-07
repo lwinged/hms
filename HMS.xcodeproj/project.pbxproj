@@ -100,11 +100,6 @@
 		EEB62FAE18F10F9C00FBA33D /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB62F8318F10F9C00FBA33D /* UIImage+WebP.m */; };
 		EEB62FAF18F10F9C00FBA33D /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB62F8518F10F9C00FBA33D /* UIImageView+WebCache.m */; };
 		EEB62FB018F10F9C00FBA33D /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EEB62F8618F10F9C00FBA33D /* MWPhotoBrowser.bundle */; };
-		EEB62FB918F1114700FBA33D /* hotel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EEB62FB418F1114700FBA33D /* hotel1.jpeg */; };
-		EEB62FBA18F1114700FBA33D /* hotel2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EEB62FB518F1114700FBA33D /* hotel2.jpeg */; };
-		EEB62FBB18F1114700FBA33D /* hotel3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EEB62FB618F1114700FBA33D /* hotel3.jpeg */; };
-		EEB62FBC18F1114700FBA33D /* hotel4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EEB62FB718F1114700FBA33D /* hotel4.jpeg */; };
-		EEB62FBD18F1114700FBA33D /* hotel5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EEB62FB818F1114700FBA33D /* hotel5.jpeg */; };
 		EEB62FC018F12B1900FBA33D /* HMSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB62FBF18F12B1900FBA33D /* HMSWebViewController.m */; };
 		EEEE644A190FADFB002AC214 /* HMSCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEEE6449190FADFB002AC214 /* HMSCommentViewController.m */; };
 /* End PBXBuildFile section */
@@ -288,11 +283,6 @@
 		EEB62F8418F10F9C00FBA33D /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		EEB62F8518F10F9C00FBA33D /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		EEB62F8618F10F9C00FBA33D /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
-		EEB62FB418F1114700FBA33D /* hotel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel1.jpeg; sourceTree = "<group>"; };
-		EEB62FB518F1114700FBA33D /* hotel2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel2.jpeg; sourceTree = "<group>"; };
-		EEB62FB618F1114700FBA33D /* hotel3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel3.jpeg; sourceTree = "<group>"; };
-		EEB62FB718F1114700FBA33D /* hotel4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel4.jpeg; sourceTree = "<group>"; };
-		EEB62FB818F1114700FBA33D /* hotel5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotel5.jpeg; sourceTree = "<group>"; };
 		EEB62FBE18F12B1900FBA33D /* HMSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSWebViewController.h; sourceTree = "<group>"; };
 		EEB62FBF18F12B1900FBA33D /* HMSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSWebViewController.m; sourceTree = "<group>"; };
 		EEEE6448190FADFB002AC214 /* HMSCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSCommentViewController.h; sourceTree = "<group>"; };
@@ -669,11 +659,6 @@
 				10AAA7FC1914EAE0005A49CA /* heart32.png */,
 				10AAA7FD1914EAE0005A49CA /* loupe32.png */,
 				10AAA7FE1914EAE0005A49CA /* shaker32.png */,
-				EEB62FB418F1114700FBA33D /* hotel1.jpeg */,
-				EEB62FB518F1114700FBA33D /* hotel2.jpeg */,
-				EEB62FB618F1114700FBA33D /* hotel3.jpeg */,
-				EEB62FB718F1114700FBA33D /* hotel4.jpeg */,
-				EEB62FB818F1114700FBA33D /* hotel5.jpeg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -761,22 +746,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D39E8E191923EC00554D4D /* 4.png in Resources */,
-				EEB62FBD18F1114700FBA33D /* hotel5.jpeg in Resources */,
 				10D39E8F191923EC00554D4D /* 5.png in Resources */,
-				EEB62FBA18F1114700FBA33D /* hotel2.jpeg in Resources */,
 				10D39E8C191923EC00554D4D /* 2.png in Resources */,
-				EEB62FBC18F1114700FBA33D /* hotel4.jpeg in Resources */,
 				EEB62FA018F10F9C00FBA33D /* README.md in Resources */,
 				EE6DA40D18D9907300970A22 /* Images.xcassets in Resources */,
 				EEB62F9118F10F9C00FBA33D /* README.mdown in Resources */,
-				EEB62FBB18F1114700FBA33D /* hotel3.jpeg in Resources */,
 				10AAA7FF1914EAE0005A49CA /* heart32.png in Resources */,
 				10D39E8B191923EC00554D4D /* 1.png in Resources */,
 				10D39E6D19155E3C00554D4D /* sectionbg.png in Resources */,
 				10D39E6A19153C7A00554D4D /* edit32.png in Resources */,
 				10D39E8D191923EC00554D4D /* 3.png in Resources */,
 				EEB62FB018F10F9C00FBA33D /* MWPhotoBrowser.bundle in Resources */,
-				EEB62FB918F1114700FBA33D /* hotel1.jpeg in Resources */,
 				10D39E6B19153C7A00554D4D /* star32.png in Resources */,
 				10AAA8001914EAE0005A49CA /* loupe32.png in Resources */,
 				EE6DA3FC18D9907300970A22 /* InfoPlist.strings in Resources */,
@@ -1030,6 +1010,7 @@
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
 				INFOPLIST_FILE = "HMS/HMS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1049,6 +1030,7 @@
 				GCC_PREFIX_HEADER = "HMS/HMS-Prefix.pch";
 				INFOPLIST_FILE = "HMS/HMS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

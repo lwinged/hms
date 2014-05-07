@@ -71,7 +71,7 @@
     for (NSInteger i=0; i < [_hotels count]; ++i) {
         NSMutableDictionary *dico_tmp = [_hotels objectAtIndex:i];
         NSInteger listStars = [[dico_tmp valueForKey:@"stars"] integerValue];
-        [_objstars addObject:[NSNumber numberWithInt:listStars]];
+        [_objstars addObject:[NSNumber numberWithInteger:listStars]];
     }
     
     indices = [_objects valueForKey:@"headerTitle"];

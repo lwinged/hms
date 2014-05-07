@@ -23,14 +23,11 @@
     
     //NSLog(@"start");
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //Tracy - text in the status bar turn into white
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //Tracy - text in the status bar turn into white    
-    
-//    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"]
     
     NSURLSessionDataTask *task = [manager GET:@"http://vm-0.lwinged.kd.io/info.json" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
     {
@@ -53,7 +50,7 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        NSLog(@"MyError: %@", error);
+       // NSLog(@"MyError: %@", error);
     }];
     
     [task resume];
@@ -105,7 +102,7 @@
     }
 
 
-    NSLog(@"all app pause kill");
+    //NSLog(@"all app pause kill");
     
 }
 
@@ -128,26 +125,26 @@
 
         _saved = NO;
     }
-        NSLog(@"background");
+     //   NSLog(@"background");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        NSLog(@"foreground");
+       // NSLog(@"foreground");
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-      NSLog(@"active");
+      //NSLog(@"active");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
-    NSLog(@"finish");
+   // NSLog(@"finish");
 }
 
 @end

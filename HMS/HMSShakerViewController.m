@@ -32,7 +32,7 @@
 }
 @end
 
-static double RAYON_KM = 10000;
+static double RAYON_KM = 10;
 static CLLocationDistance DISTANCE_M_UPDATE = 10;
 
 @implementation HMSShakerViewController
@@ -116,8 +116,8 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
         
         // Le span est le niveau de zoom
         MKCoordinateSpan span;
-        span.latitudeDelta = 0.05;
-        span.longitudeDelta = 0.05;
+        span.latitudeDelta = 0.1;
+        span.longitudeDelta = 0.1;
         region.span = span;
         [self.mapView setRegion:region animated:TRUE];
 
@@ -341,8 +341,8 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
         
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
         [manager downloadWithURL:[NSURL URLWithString:path] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
-            if (error)
-                NSLog(@"SDWebImage failed to download image: %@", error);
+//            if (error)
+//                NSLog(@"SDWebImage failed to download image: %@", error);
             
             thumbnail.image = image;
             [self.mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];

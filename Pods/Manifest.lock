@@ -27,7 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - JSMessagesViewController
+  - JSMessagesViewController (~> 4.0.1)
   - SBPickerSelector (~> 1.0.1)
 
 SPEC CHECKSUMS:

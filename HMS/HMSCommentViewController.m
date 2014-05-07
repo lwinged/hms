@@ -43,10 +43,7 @@
     self.dataSource = self;
     [super viewDidLoad];
     [self configureView];
-    
-    //remove input text view
-    [[self.view.subviews lastObject] removeFromSuperview];
-    
+
     //fix under top bar
     self.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height,0,self.tabBarController.tabBar.frame.size.height+5,0);
     
