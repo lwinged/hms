@@ -10,10 +10,12 @@
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 #import "HMSShakerViewController.h"
+#import "HMSColorElement.h"
 
 @interface HMSMenuPanelTableViewController ()
 {
     NSArray * _objects;
+    NSArray* _thumbnails;
 }
 
 @end
@@ -33,11 +35,16 @@
 {
     [super viewDidLoad];
     
-    _objects = [[NSArray alloc] initWithObjects:@"Search", @"Shaker", @"Favourite", nil];
+    _objects = [[NSArray alloc] initWithObjects: @"Search", @"Shaker", @"Favorite", nil];
+    _thumbnails = [[NSArray alloc] initWithObjects: @"loupe32.png", @"shaker32.png", @"heart32.png", nil]; //add icon
+    
     
     // under status bar
-    self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    self.tableView.contentInset = UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f);
+    self.tableView.backgroundColor = [HMSColorElement hms_lightRedColor]; //background color
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
     
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +72,15 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3" forIndexPath:indexPath];
     
+    //UIImage *background = [UIImage imageNamed:@"cellstylebg.png"];
+    //UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    //cellBackgroundView.image = background;
+    //cell.backgroundView = cellBackgroundView;
+    
+    cell.imageView.image = [UIImage imageNamed:[_thumbnails objectAtIndex:indexPath.row]];
     cell.textLabel.text = _objects[indexPath.row];
+    cell.backgroundColor = [HMSColorElement hms_darkRedColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }

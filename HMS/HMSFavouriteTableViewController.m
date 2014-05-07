@@ -10,6 +10,7 @@
 #import "HMSHelperIndexedList.h"
 #import "HMSTabBarController.h"
 #import "HMSAppDelegate.h"
+#import "HMSColorElement.h"
 
 @interface HMSFavouriteTableViewController ()
 {
@@ -37,6 +38,25 @@
 {
     [super viewDidLoad];
     
+    // Initialize the UIButton
+    UIImage *editImg = [UIImage imageNamed:@"edit32.png"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:editImg forState:UIControlStateNormal];
+    btn.frame = CGRectMake(0.0, 0.0, editImg.size.width, editImg.size.height);
+    
+    // Initialize the UIBarButtonItem
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    // Set the Target and Action for btn
+    [btn addTarget:self action:@selector(editButtonTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+
+    // Then you can add the aBarButtonItem to the UINavigationBar
+    self.navigationItem.rightBarButtonItem = aBarButtonItem;
+    
+    // Release buttonImage
+    //[editImg release];
+    
     appDelegate = [[UIApplication sharedApplication] delegate];
     
     _hotels = appDelegate.favoritesHotels;
@@ -44,9 +64,16 @@
     _objects = [[HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_hotels :@"name"]] mutableCopy];
     indices = [_objects valueForKey:@"headerTitle"];
 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = @"Favourite";
 
+}
+
+- (void) editButtonTouched
+{
+    // edit/done button has been touched
+        [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,9 +101,42 @@
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
                            objectAtIndex:indexPath.row];
     
+    if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
+        tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];
+    }
+    
     return cell;
 }
 
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+	for (int i=0; i < indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+    
+	return retInt + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+    
+    NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    if (realRow % 2) {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0];
+    }
+    else {
+        cell.backgroundColor = [HMSColorElement hms_grayColor];
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor];
+    }
+    
+}
 
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
 	return [[_objects objectAtIndex:section] objectForKey:@"headerTitle"];

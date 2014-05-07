@@ -7,14 +7,14 @@
 //
 
 #import "HMSDetailViewController.h"
-#import "HMSHelperIndexedList.h"
-#import "HMSHotel.h"
-#import "HMSTabBarController.h"
+#import "HMSColorElement.h"
+
 
 
 @interface HMSDetailViewController ()
 {
     NSArray * _objects;
+    NSMutableArray * _objstars;
     NSArray *indices;
 }
 
@@ -52,8 +52,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-        
+
     _objects = [HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_detailItem :@"name"]];
+
+    
+    _objstars = [[NSMutableArray alloc] init];
+
+    for (NSInteger i=0; i < [_detailItem count]; ++i) {
+        NSMutableDictionary *dico_tmp = [_detailItem objectAtIndex:i];
+        NSInteger listStars = [[dico_tmp valueForKey:@"stars"] integerValue];
+        [_objstars addObject:[NSNumber numberWithInt:listStars]];
+    }
+  
     indices = [_objects valueForKey:@"headerTitle"];
 }
 
@@ -75,14 +85,71 @@
     return [[[_objects objectAtIndex:section] objectForKey:@"rowValues"] count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
-    cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
-                           objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"] objectAtIndex:indexPath.row];
+    
+    
+    for (NSInteger i=0; i < [_objstars count]; ++i) {
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        
+        if ([[_objstars[i] stringValue] isEqualToString:@"1"]) {
+            imgView.image = [UIImage imageNamed:@"1.png"];
+        }
+        else if ([[_objstars[i] stringValue] isEqualToString:@"2"]) {
+            imgView.image = [UIImage imageNamed:@"2.png"];
+        }
+        else if ([[_objstars[i] stringValue] isEqualToString:@"3"]) {
+            imgView.image = [UIImage imageNamed:@"3.png"];
+        }
+        else if ([[_objstars[i] stringValue] isEqualToString:@"4"]) {
+            imgView.image = [UIImage imageNamed:@"4.png"];
+        }
+        else if ([[_objstars[i] stringValue] isEqualToString:@"5"]) {
+            imgView.image = [UIImage imageNamed:@"5.png"];
+        }
+        cell.imageView.image = imgView.image;
+    }
+    
+    if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
+        tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];
+    }
     
     return cell;
+}
+
+
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+	for (int i=0; i < indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+    
+	return retInt + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+    
+    NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    if (realRow % 2) {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [UIColor colorWithRed:(145/255.0) green:(40/255.0) blue:(59/255.0) alpha:1.0];
+    }
+    else {
+        cell.backgroundColor = [UIColor colorWithRed:(253/255.0) green:(253/255.0) blue:(254/255.0) alpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:(109/255.0) green:(7/255.0) blue:(26/255.0) alpha:1.0];
+    }
+    
 }
 
 

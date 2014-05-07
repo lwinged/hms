@@ -13,6 +13,7 @@
 #import "JPSThumbnail.h"
 #import "JPSThumbnailAnnotation.h"
 #import "HMSAppDelegate.h"
+#import "HMSColorElement.h"
 
 #import "HMSTabBarController.h"
 #import "HMSHotel.h"
@@ -50,8 +51,26 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     [super viewDidLoad];
 
     self.title = @"Shaker";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Shake" style:UIBarButtonItemStylePlain target:self action:@selector(enableShaker)];
-;
+
+    
+    // Initialize the UIButton
+    UIImage *shakerImg = [UIImage imageNamed:@"shaker32.png"];
+    UIButton *aButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [aButton setImage:shakerImg forState:UIControlStateNormal];
+    aButton.frame = CGRectMake(0.0, 0.0, shakerImg.size.width, shakerImg.size.height);
+    
+    // Initialize the UIBarButtonItem
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:aButton];
+    
+    // Set the Target and Action for aButton
+    [aButton addTarget:self action:@selector(enableShaker) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Then you can add the aBarButtonItem to the UINavigationBar
+    self.navigationItem.rightBarButtonItem = aBarButtonItem;
+    
+    // Release buttonImage
+   //[shakerImg release];
+    
 
     appDelegate = [[UIApplication sharedApplication] delegate];
 
@@ -190,8 +209,8 @@ static CLLocationDistance DISTANCE_M_UPDATE = 10;
     radialView.progressTotal = 15;
     radialView.progressCounter = 0;
     radialView.clockwise = YES;
-    radialView.theme.completedColor = [UIColor colorWithRed:90/255.0 green:200/255.0 blue:251/255.0 alpha:1.0];
-    radialView.theme.incompletedColor = [UIColor colorWithRed:82/255.0 green:237/255.0 blue:199/255.0 alpha:1.0];
+    radialView.theme.completedColor = [HMSColorElement hms_darkRedColor];
+    radialView.theme.incompletedColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1.0];
     radialView.theme.thickness = 30;
     radialView.theme.sliceDividerHidden = NO;
     radialView.theme.sliceDividerColor = [UIColor whiteColor];

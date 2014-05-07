@@ -12,7 +12,7 @@
 #import "HMSHotel.h"
 #import "HMSAppDelegate.h"
 
-//#import "HMSMathHelper.h"
+#import "HMSColorElement.h"
 
 @interface HMSMasterViewController () {
     NSArray * _objects;
@@ -32,9 +32,24 @@
 
 @implementation HMSMasterViewController
 
-- (void)awakeFromNib
+- (void)awakeFromNib //TRACY - NAVIGATIONBAR AND TABBAR
 {
     [super awakeFromNib];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[UITabBar appearance] setTintColor: [UIColor whiteColor]];
+    [[UITabBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
+   
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Menlo" size:17.0]];
+    
+    [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Menlo" size:19.0]}];
+    [[UINavigationBar appearance] setBarTintColor: [HMSColorElement hms_darkRedColor]];
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone]; //remove separator line
+    
+
 }
 
 - (void)viewDidLoad
@@ -199,13 +214,48 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
+   
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
     objectAtIndex:indexPath.row];
+    
+    if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
+        tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];
+    }
     
     return cell;
 }
 
+
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+	for (int i=0; i < indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+    
+	return retInt + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath //TRACY - TABLE VIEW COLOR CELL HANDLER
+{
+    
+    NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    if (realRow % 2) {
+        cell.backgroundColor = [HMSColorElement hms_lightRedColor]; //lightColor
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.textColor = [HMSColorElement hms_darkRedColor]; //darkColor
+        
+    }
+    
+}
 
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
 	return [[_objects objectAtIndex:section] objectForKey:@"headerTitle"];

@@ -26,7 +26,8 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //Tracy - text in the status bar turn into white    
     
 //    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 //    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"]
