@@ -54,9 +54,9 @@
 
 @property (nonatomic, strong) NSMutableArray * comments;
 
-@property (nonatomic, assign) float latitude;
+@property (nonatomic, assign) double latitude;
 
-@property (nonatomic, assign) float longitude;
+@property (nonatomic, assign) double longitude;
 
 @property (nonatomic, assign) NSInteger id;
 

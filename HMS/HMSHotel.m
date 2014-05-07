@@ -53,6 +53,9 @@
     [coder encodeObject:self.rooms   forKey:@"rooms"];
     [coder encodeObject:self.photos   forKey:@"photos"];
     [coder encodeObject:self.comments   forKey:@"comments"];
+    [coder encodeDouble:self.latitude forKey:@"latitude"];
+    [coder encodeDouble:self.longitude forKey:@"longitude"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -68,7 +71,8 @@
        _rooms = [decoder decodeObjectForKey:@"rooms"];
        _photos = [decoder decodeObjectForKey:@"photos"];
        _comments = [decoder decodeObjectForKey:@"comments"];
-
+       _latitude = [decoder decodeDoubleForKey:@"latitude"];
+       _longitude = [decoder decodeDoubleForKey:@"longitude"];
 
     }
     return self;
