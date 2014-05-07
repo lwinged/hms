@@ -15,6 +15,7 @@
 @interface HMSFavouriteTableViewController ()
 {
     NSMutableArray * _objects;
+    NSMutableArray * _objstars;
     NSMutableArray *indices;
     NSMutableArray * _hotels;
     HMSAppDelegate *appDelegate;
@@ -64,6 +65,15 @@
     _hotels = appDelegate.favoritesHotels;
 
     _objects = [[HMSHelperIndexedList addContentInIndexedList:[HMSHelperIndexedList createDictionnaryForIndexedList:_hotels :@"name"]] mutableCopy];
+    
+    _objstars = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i=0; i < [_hotels count]; ++i) {
+        NSMutableDictionary *dico_tmp = [_hotels objectAtIndex:i];
+        NSInteger listStars = [[dico_tmp valueForKey:@"stars"] integerValue];
+        [_objstars addObject:[NSNumber numberWithInt:listStars]];
+    }
+    
     indices = [_objects valueForKey:@"headerTitle"];
 
     
@@ -102,6 +112,14 @@
     
     cell.textLabel.text = [[[_objects objectAtIndex:indexPath.section] objectForKey:@"rowValues"]
                            objectAtIndex:indexPath.row];
+    
+    for (NSInteger i=0; i < [_objstars count]; ++i) {
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        NSString *tmp = [NSString stringWithFormat:@"%@.png", _objstars[i]];
+        imgView.image = [UIImage imageNamed:tmp];
+        cell.imageView.image = imgView.image;
+    }
+
     
     if ([tableView respondsToSelector:@selector(setSectionIndexColor:)]) { //couleur text index bar
         tableView.sectionIndexColor = [HMSColorElement hms_darkRedColor];

@@ -97,28 +97,8 @@
     
     for (NSInteger i=0; i < [_objstars count]; ++i) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-
-        switch ( [_objstars[i] integerValue]) {
-            case 1:
-                imgView.image = [UIImage imageNamed:@"1.png"];
-                break;
-            case 2:
-                imgView.image = [UIImage imageNamed:@"2.png"];
-            break;
-            case 3:
-                imgView.image = [UIImage imageNamed:@"3.png"];
-            break;
-            case 4:
-                imgView.image = [UIImage imageNamed:@"4.png"];
-            break;
-            case 5:
-                imgView.image = [UIImage imageNamed:@"5.png"];
-            break;
-
-            default:
-                break;
-        }
-                 
+        NSString *tmp = [NSString stringWithFormat:@"%@.png", _objstars[i]];
+        imgView.image = [UIImage imageNamed:tmp];
         cell.imageView.image = imgView.image;
     }
     
